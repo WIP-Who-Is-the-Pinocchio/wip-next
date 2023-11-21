@@ -10,8 +10,8 @@ const twLabel = 'text-[14px] font-medium leading-[100%]';
 
 export default function Card({}: CardProps) {
   return (
-    <li className="flex gap-[20px]">
-      <div>
+    <li className="flex select-none gap-[20px]">
+      <div className="relative">
         <Image
           className="rounded-[12px] border-[1px] border-solid border-[#EEE]"
           src={RANDOM_IMAGE}
@@ -19,6 +19,9 @@ export default function Card({}: CardProps) {
           width={102}
           height={102}
         />
+        <span className="absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-primary text-[14px] font-semibold leading-[100%] text-white">
+          1
+        </span>
       </div>
       <div className="flex flex-col gap-[16px]">
         <div className="flex gap-[10px]">
