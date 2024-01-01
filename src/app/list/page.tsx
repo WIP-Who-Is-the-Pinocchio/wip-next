@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import type { ChangeEventHandler } from 'react';
 import { twMerge } from 'tailwind-merge';
+import Rank from '../components/rank/Rank';
 import Tabs, { Tab } from '../components/list/Tabs';
 import Regions from '../components/list/Regions';
 import Card from '../components/congress/Card';
@@ -38,6 +39,9 @@ export default function List() {
         <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
           누가 피노키오인가?
         </p>
+      </article>
+      <article className="mb-[40px] px-[30px]">
+        <Rank />
       </article>
       <article
         style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
