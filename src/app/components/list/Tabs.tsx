@@ -1,16 +1,14 @@
-"use client";
+'use client';
 
-import { twMerge } from "tailwind-merge";
+import { twMerge } from 'tailwind-merge';
 
 const twTab =
-  "py-[10px] px-[35px] rounded-[12px] text-[16px] not-italic leading-[100%] border-[1px] border-solid";
-const twSelectedTab =
-  "text-[#565656] font-semibold bg-white shadow-md border-black";
-const twUnselectedTab =
-  "text-[#818181] font-medium bg-[#f1f1f1] border-[#f1f1f1]";
+  'py-[8px] px-[24px] rounded-[36px] text-[16px] not-italic leading-[100%]';
+const twSelectedTab = 'text-[#9333EA] font-semibold bg-white border-black';
+const twUnselectedTab = 'text-[#C084FC] font-medium';
 
 const TabEnum = {
-  LIST: 0,
+  COUNTRYWIDE: 0,
   REGION: 1,
   PARTY: 2,
 } as const;
@@ -19,12 +17,12 @@ export type Tab = keyof typeof TabEnum;
 
 const getTabText = (tab: Tab) => {
   switch (tab) {
-    case "LIST":
-      return "리스트";
-    case "REGION":
-      return "지역별";
-    case "PARTY":
-      return "정당별";
+    case 'COUNTRYWIDE':
+      return '전국';
+    case 'REGION':
+      return '지역별';
+    case 'PARTY':
+      return '정당별';
     default:
   }
 };
@@ -38,8 +36,8 @@ interface TabsProps {
 export default function Tabs({ tabs, selectedTab, onSelectTab }: TabsProps) {
   return (
     <div
-      style={{ boxShadow: "0px 0px 2px 0px rgba(0, 0, 0, 0.25) inset" }}
-      className="flex gap-[1px] p-[3px] rounded-[12px] bg-[#f1f1f1]"
+      style={{ boxShadow: '0px 0px 4px 0px #C084FC7A inset' }}
+      className="flex w-fit gap-[10px] rounded-[36px] bg-[#F3E8FF] p-[3px]"
     >
       {tabs.map((tab, i) => (
         <div
