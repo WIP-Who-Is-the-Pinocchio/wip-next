@@ -20,7 +20,7 @@ export default function Card({}: CardProps) {
             width={104}
             height={104}
           />
-          <span className="absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] text-[14px] font-semibold leading-[100%] text-[#9333EA]">
+          <span className="text-primary-text absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] text-[14px] font-semibold leading-[100%]">
             1
           </span>
         </div>
@@ -44,7 +44,7 @@ export default function Card({}: CardProps) {
                 공약이행률
               </span>
               <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
-                <span className="font-bold text-[#9333EA]">80%</span>
+                <span className="text-primary-text font-bold">80%</span>
                 <span>(4/5개)</span>
               </p>
             </li>
@@ -55,7 +55,7 @@ export default function Card({}: CardProps) {
           </ul>
         </div>
       </div>
-      <button className="h-[28px] w-[33px] cursor-pointer rounded-br-[12px] rounded-tl-[12px] border-[#7E22CE] bg-[#9333EA] text-white">
+      <button className="bg-primary-text h-[28px] w-[33px] cursor-pointer rounded-br-[12px] rounded-tl-[12px] border-[#7E22CE] text-white">
         +
       </button>
     </li>
