@@ -10,49 +10,54 @@ const twLabel = 'text-[14px] font-medium leading-[100%]';
 
 export default function Card({}: CardProps) {
   return (
-    <li className="flex select-none gap-[20px]">
-      <div className="relative">
-        <Image
-          className="rounded-[12px] border-[1px] border-solid border-[#EEE]"
-          src={RANDOM_IMAGE}
-          alt=""
-          width={102}
-          height={102}
-        />
-        <span className="absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-primary text-[14px] font-semibold leading-[100%] text-white">
-          1
-        </span>
-      </div>
-      <div className="flex flex-col gap-[16px]">
-        <div className="flex gap-[10px]">
-          <span className="text-[24px] font-semibold leading-[100%] text-black">
-            김OO
+    <li className="flex w-full items-end justify-between">
+      <div className="flex  select-none gap-[20px]">
+        <div className="relative">
+          <Image
+            className="rounded-[12px] border-[1px] border-solid border-[#EEE]"
+            src={RANDOM_IMAGE}
+            alt=""
+            width={104}
+            height={104}
+          />
+          <span className="text-primary-text absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] text-[14px] font-semibold leading-[100%]">
+            1
           </span>
-          <Badge>마포구을</Badge>
         </div>
-        <ul className="flex flex-col gap-[10px]">
-          <li className="flex gap-[10px]">
-            <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>선거구</span>
-            <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
-              <span>서울특별시</span>
-              <span>마포구을</span>
-            </p>
-          </li>
-          <li className="flex gap-[10px]">
-            <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>
-              공약이행률
+        <div className="flex flex-col gap-[16px]">
+          <div className="flex gap-[10px]">
+            <span className="text-[24px] font-semibold leading-[100%] text-black">
+              김OO
             </span>
-            <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
-              <span className="font-bold text-primary">80%</span>
-              <span>(4/5개)</span>
-            </p>
-          </li>
-          <li className="flex gap-[10px]">
-            <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>소속</span>
-            <p className={twMerge(twLabel, 'text-[#636363]')}>더불어민주당</p>
-          </li>
-        </ul>
+            <Badge>마포구을</Badge>
+          </div>
+          <ul className="flex flex-col gap-[10px]">
+            <li className="flex gap-[10px]">
+              <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>선거구</span>
+              <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
+                <span>서울특별시</span>
+                <span>마포구을</span>
+              </p>
+            </li>
+            <li className="flex gap-[10px]">
+              <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>
+                공약이행률
+              </span>
+              <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
+                <span className="text-primary-text font-bold">80%</span>
+                <span>(4/5개)</span>
+              </p>
+            </li>
+            <li className="flex gap-[10px]">
+              <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>소속</span>
+              <p className={twMerge(twLabel, 'text-[#636363]')}>더불어민주당</p>
+            </li>
+          </ul>
+        </div>
       </div>
+      <button className="bg-primary-text h-[28px] w-[33px] cursor-pointer rounded-br-[12px] rounded-tl-[12px] border-[#7E22CE] text-white">
+        +
+      </button>
     </li>
   );
 }
