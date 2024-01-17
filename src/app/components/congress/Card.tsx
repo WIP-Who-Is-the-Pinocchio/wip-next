@@ -1,14 +1,93 @@
 import { twMerge } from 'tailwind-merge';
 import Image from 'next/image';
 import Badge from './Badge';
+import { useState } from 'react';
+import DetailTable from './DetailTable';
 
 interface CardProps {}
+
+interface PledgesData {
+  total: number;
+  completed: number;
+  inProgress: number;
+  pending: number;
+  other: number;
+}
+
+interface CompletionStatusData {
+  nation: number;
+  region: number;
+  legislative: number;
+  budget: number;
+  duringTerm: number;
+}
+
+interface LegislativeStatusData {
+  totalRequired: number;
+  completedResolution: number;
+}
+
+interface FinancialStatusData {
+  totalRequired: number;
+  secured: number;
+  executed: number;
+}
 
 const RANDOM_IMAGE = 'https://picsum.photos/102';
 
 const twLabel = 'text-[14px] font-medium leading-[100%]';
 
 export default function Card({}: CardProps) {
+  const pledgesData: PledgesData[] = [
+    { total: 100, completed: 30, inProgress: 40, pending: 20, other: 10 },
+  ];
+
+  const pledgesColumns = [
+    { label: '총공약수', key: 'total' },
+    { label: '완료', key: 'completed' },
+    { label: '추진중', key: 'inProgress' },
+    { label: '보류', key: 'pending' },
+    { label: '기타', key: 'other' },
+  ];
+
+  const completionStatusData: CompletionStatusData[] = [
+    { nation: 50, region: 25, legislative: 10, budget: 10, duringTerm: 5 },
+  ];
+
+  const completionStatusColumns = [
+    { label: '국정공약', key: 'nation' },
+    { label: '지역공약', key: 'region' },
+    { label: '입법공약', key: 'legislative' },
+    { label: '재정공약', key: 'budget' },
+    { label: '임기내', key: 'duringTerm' },
+  ];
+
+  const legislativeStatusColumns = [
+    { label: '필요입법공약총수', key: 'totalRequired', width: 4 },
+    { label: '입법의결완료공약총수', key: 'completedResolution', width: 8 },
+  ];
+
+  const legislativeStatusData: LegislativeStatusData[] = [
+    { totalRequired: 111, completedResolution: 222 },
+  ];
+
+  const financialStatusColumns = [
+    { label: '필요재정총액', key: 'totalRequired', width: 4 },
+    { label: '확보재정총액', key: 'secured', width: 4 },
+    { label: '집행재정총액', key: 'executed', width: 4 },
+  ];
+
+  const financialStatusData: FinancialStatusData[] = [
+    { totalRequired: 1000000, secured: 500000, executed: 300000 },
+    // Add more rows as needed
+  ];
+
+  const [isOpenDetail, setIsOpenDetail] = useState(false);
+
+  const handleOpenDetail = () => {
+    setIsOpenDetail(!isOpenDetail);
+  };
+
   return (
     <li className="flex w-full items-end justify-between">
       <div className="flex  select-none gap-[20px]">
@@ -20,7 +99,7 @@ export default function Card({}: CardProps) {
             width={104}
             height={104}
           />
-          <span className="text-primary-text absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] text-[14px] font-semibold leading-[100%]">
+          <span className="absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] text-[14px] font-semibold leading-[100%] text-primary-text">
             1
           </span>
         </div>
@@ -44,7 +123,7 @@ export default function Card({}: CardProps) {
                 공약이행률
               </span>
               <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
-                <span className="text-primary-text font-bold">80%</span>
+                <span className="font-bold text-primary-text">80%</span>
                 <span>(4/5개)</span>
               </p>
             </li>
@@ -53,9 +132,61 @@ export default function Card({}: CardProps) {
               <p className={twMerge(twLabel, 'text-[#636363]')}>더불어민주당</p>
             </li>
           </ul>
+          {isOpenDetail && (
+            <div>
+              <h2>공약 이행 현황</h2>
+              <span>총 공약수 = 완료+추진중+보류+폐기+기타공약수</span>
+              <DetailTable
+                data={pledgesData}
+                columns={pledgesColumns}
+                colName1={'공약수'}
+                colName2={'비고'}
+              />
+
+              <h2>성격/내용별 완료 현황</h2>
+              <span>*각 분류별로 완료 공약 수 및 전체 공약수를 기입</span>
+              <DetailTable
+                data={completionStatusData}
+                columns={completionStatusColumns}
+                colName1={'완료/전체'}
+                colName2={'전체'}
+              />
+
+              <h2>입법현황</h2>
+              <span>*필요 입법 공약 총 수 : 입법이 필요한 공약의 총 수 </span>
+              <span>
+                *입법 의결 완료 공약 총 수 : 입법을 모두 완료한 공약의 총 수
+              </span>
+              <DetailTable
+                data={completionStatusData}
+                columns={completionStatusColumns}
+                colName1={'완료/전체'}
+                colName2={'전체'}
+              />
+              <h2>재정현황</h2>
+              <span>*전체 공약의 재정 현황 합계 </span>
+              <DetailTable
+                data={legislativeStatusData}
+                columns={legislativeStatusColumns}
+                colName1={'공약수'}
+                colName2={'비고'}
+              />
+              <h2>재정현황</h2>
+              <span>*전체 공약의 재정 현황 합계 </span>
+              <DetailTable
+                data={financialStatusData}
+                columns={financialStatusColumns}
+                colName1={'금액'}
+                colName2={'비고'}
+              />
+            </div>
+          )}
         </div>
       </div>
-      <button className="bg-primary-text h-[28px] w-[33px] cursor-pointer rounded-br-[12px] rounded-tl-[12px] border-[#7E22CE] text-white">
+      <button
+        className="h-[28px] w-[33px] cursor-pointer rounded-br-[12px] rounded-tl-[12px] border-[#7E22CE] bg-primary-text text-white"
+        onClick={handleOpenDetail}
+      >
         +
       </button>
     </li>
