@@ -48,7 +48,7 @@ export interface Constituency {
   section: string;
 }
 
-export interface Politician {
+export interface PoliticianDetail {
   id: number;
   name: string;
   assembly_term: number;
@@ -69,4 +69,45 @@ export interface Politician {
   promise_count_detail: PromiseCountDetail;
   committee: Committee[];
   constituency: Constituency[];
+}
+
+//여기 아래서부터는 클라이언트 데이터타입
+
+export interface CommonColumn {
+  label: string;
+  key: string;
+}
+
+export interface TableProps {
+  data: { [key: string]: any }[];
+  columns: CommonColumn[];
+  colName1: string;
+  colName2: string;
+}
+
+export interface PledgesData {
+  total: number;
+  completed: number;
+  inProgress: number;
+  pending: number;
+  other: number;
+}
+
+export interface CompletionStatusData {
+  nation: number;
+  region: number;
+  legislative: number;
+  budget: number;
+  duringTerm: number;
+}
+
+export interface LegislativeStatusData {
+  totalRequired: number;
+  completedResolution: number;
+}
+
+export interface FinancialStatusData {
+  totalRequired: number;
+  secured: number;
+  executed: number;
 }
