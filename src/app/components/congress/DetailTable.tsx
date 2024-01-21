@@ -1,16 +1,5 @@
 import React from 'react';
-
-interface CommonColumn {
-  label: string;
-  key: string;
-}
-
-interface TableProps {
-  data: { [key: string]: any }[];
-  columns: CommonColumn[];
-  colName1: string;
-  colName2: string;
-}
+import { CommonColumn, TableProps } from '../../../api/apiTypes';
 
 const DetailTable: React.FC<TableProps> = ({
   data,

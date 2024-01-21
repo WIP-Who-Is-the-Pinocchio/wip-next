@@ -12,7 +12,7 @@ const twProfile = 'flex flex-col items-center';
 export default function Rank({}: RankProps) {
   return (
     <section className="flex flex-col items-center">
-      <div className="mb-[26px]">{'(전국) 공약 이행률 가장 낮은 3인'}</div>
+      <div className="mb-[26px]">{'(서울) 공약 이행률 가장 낮은 3인'}</div>
       <article className="flex items-end gap-[40px]">
         <div className={twMerge(twProfile)}>
           <span className="mb-[6px] text-[14px] text-[#8C8C8C]">2%</span>

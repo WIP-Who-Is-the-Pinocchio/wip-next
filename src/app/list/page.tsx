@@ -8,7 +8,7 @@ import Tabs, { Tab } from '../components/list/Tabs';
 import Regions from '../components/list/Regions';
 import Card from '../components/congress/Card';
 import { useState } from 'react';
-import { getPoliticiansList } from '../../api/api';
+import { getPoliticiansListData } from '../../api/api';
 
 // const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
 const tabs: Tab[] = ['COUNTRYWIDE'];
@@ -31,7 +31,7 @@ export default function List() {
     console.log(`검색어: ${search}`);
   };
 
-  const politiciansData = getPoliticiansList();
+  const politiciansData = getPoliticiansListData();
   // console.log(politiciansData);
 
   return (

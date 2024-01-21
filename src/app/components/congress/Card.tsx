@@ -3,41 +3,64 @@ import Image from 'next/image';
 import Badge from './Badge';
 import { useState } from 'react';
 import DetailTable from './DetailTable';
+import {
+  PledgesData,
+  CompletionStatusData,
+  LegislativeStatusData,
+  FinancialStatusData,
+  Politician,
+  Constituency,
+  PoliticianDetail,
+} from '../../../api/apiTypes';
+
+import {
+  getPoliticiansListData,
+  getPoliticianSingleData,
+} from '../../../api/api';
 
 interface CardProps {}
-
-interface PledgesData {
-  total: number;
-  completed: number;
-  inProgress: number;
-  pending: number;
-  other: number;
-}
-
-interface CompletionStatusData {
-  nation: number;
-  region: number;
-  legislative: number;
-  budget: number;
-  duringTerm: number;
-}
-
-interface LegislativeStatusData {
-  totalRequired: number;
-  completedResolution: number;
-}
-
-interface FinancialStatusData {
-  totalRequired: number;
-  secured: number;
-  executed: number;
-}
 
 const RANDOM_IMAGE = 'https://picsum.photos/102';
 
 const twLabel = 'text-[14px] font-medium leading-[100%]';
 
 export default function Card({}: CardProps) {
+  const politicianListData = getPoliticiansListData(); //전체
+  // const policitianSingleData = getPoliticianSingleData(1); //개별
+  const {
+    id,
+    name,
+    profile_url,
+    political_party,
+    total_promise_count,
+    completed_promise_count,
+    promise_execution_rate,
+    constituency,
+  } = politicianListData;
+
+  // const {
+  //   id,
+  //   name,
+  //   assembly_term,
+  //   profile_url,
+  //   political_party,
+  //   elected_count,
+  //   total_promise_count,
+  //   completed_promise_count,
+  //   in_progress_promise_count,
+  //   pending_promise_count,
+  //   discarded_promise_count,
+  //   other_promise_count,
+  //   resolve_required_promise_count,
+  //   resolved_promise_count,
+  //   total_required_funds,
+  //   total_secured_funds,
+  //   total_executed_funds,
+  //   promise_count_detail,
+  //   committee,
+  //   constituency
+  // } = policitianSingleData;
+
   const pledgesData: PledgesData[] = [
     { total: 100, completed: 30, inProgress: 40, pending: 20, other: 10 },
   ];
@@ -79,7 +102,6 @@ export default function Card({}: CardProps) {
 
   const financialStatusData: FinancialStatusData[] = [
     { totalRequired: 1000000, secured: 500000, executed: 300000 },
-    // Add more rows as needed
   ];
 
   const [isOpenDetail, setIsOpenDetail] = useState(false);
@@ -101,7 +123,7 @@ export default function Card({}: CardProps) {
             width={104}
             height={104}
           />
-          <span className="absolute left-0 top-0 flex h-[27.45098%] w-[27.45098%] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] text-[14px] font-semibold leading-[100%] text-primary-text">
+          <span className="absolute left-0 top-0 flex min-h-[27px] min-w-[27px] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] p-[5px] text-[14px] font-semibold leading-[100%] text-primary-text">
             1
           </span>
         </div>
