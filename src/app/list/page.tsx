@@ -8,11 +8,12 @@ import Tabs, { Tab } from '../components/list/Tabs';
 import Regions from '../components/list/Regions';
 import Card from '../components/congress/Card';
 import { useState } from 'react';
+import { getPoliticiansList } from '../../api/api';
 
-const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
-
+// const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
+const tabs: Tab[] = ['COUNTRYWIDE'];
 export default function List() {
-  const [selectedTab, setSelectedTab] = useState<Tab>('REGION');
+  const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
   const [search, setSearch] = useState('');
 
   // 임시 더미 배열
@@ -29,6 +30,9 @@ export default function List() {
   const handleSearch = () => {
     console.log(`검색어: ${search}`);
   };
+
+  const politiciansData = getPoliticiansList();
+  // console.log(politiciansData);
 
   return (
     <section className="flex flex-col items-center py-[30px]">

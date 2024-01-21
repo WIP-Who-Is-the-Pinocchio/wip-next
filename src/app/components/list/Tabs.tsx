@@ -9,8 +9,8 @@ const twUnselectedTab = 'text-[#C084FC] font-medium';
 
 const TabEnum = {
   COUNTRYWIDE: 0,
-  REGION: 1,
-  PARTY: 2,
+  // REGION: 1,
+  // PARTY: 2,
 } as const;
 
 export type Tab = keyof typeof TabEnum;
@@ -18,11 +18,11 @@ export type Tab = keyof typeof TabEnum;
 const getTabText = (tab: Tab) => {
   switch (tab) {
     case 'COUNTRYWIDE':
-      return '전국';
-    case 'REGION':
-      return '지역별';
-    case 'PARTY':
-      return '정당별';
+      return '서울';
+    // case 'REGION':
+    //   return '지역별';
+    // case 'PARTY':
+    //   return '정당별';
     default:
   }
 };
