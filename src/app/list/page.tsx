@@ -10,8 +10,8 @@ import Card from '../components/congress/Card';
 import { useState } from 'react';
 import { getPoliticiansListData } from '../../api/api';
 
-// const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
-const tabs: Tab[] = ['COUNTRYWIDE'];
+const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
+// const tabs: Tab[] = ['COUNTRYWIDE'];
 export default function List() {
   const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
   const [search, setSearch] = useState('');
