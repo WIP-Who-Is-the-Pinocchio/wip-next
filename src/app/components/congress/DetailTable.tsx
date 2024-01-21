@@ -18,22 +18,32 @@ const DetailTable: React.FC<TableProps> = ({
   colName1,
   colName2,
 }) => {
+  const commonCellStyle =
+    'border-[1px] border-solid border-[#EDEDED] p-[3px] text-center';
+
   return (
-    <table>
+    <table className="mb-[24px] w-[100%]">
       <thead>
         <tr>
-          <th></th>
+          <th className={`${commonCellStyle} bg-[#F6F6F6]`}></th>
           {columns.map((column, index) => (
-            <th key={index}>{column.label}</th>
+            <th
+              key={index}
+              className={`${commonCellStyle} bg-[#F6F6F6] p-[10px] text-center font-medium text-[#6D6D6D]`}
+            >
+              {column.label}
+            </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {data.map((row, rowIndex) => (
           <tr key={rowIndex}>
-            <td>{colName1}</td>
+            <td className={`${commonCellStyle} text-center`}>{colName1}</td>
             {columns.map((column, colIndex) => (
-              <td key={colIndex}>{row[column.key]}</td>
+              <td key={colIndex} className={`${commonCellStyle} text-center`}>
+                {row[column.key]} / {100}
+              </td>
             ))}
           </tr>
         ))}
@@ -41,9 +51,11 @@ const DetailTable: React.FC<TableProps> = ({
       <tbody>
         {data.map((row, rowIndex) => (
           <tr key={rowIndex}>
-            <td>{colName2}</td>
+            <td className={`${commonCellStyle} text-center`}>{colName2}</td>
             {columns.map((column, colIndex) => (
-              <td key={colIndex}>{row[column.key]}</td>
+              <td key={colIndex} className={`${commonCellStyle} text-center`}>
+                {row[column.key]}
+              </td>
             ))}
           </tr>
         ))}

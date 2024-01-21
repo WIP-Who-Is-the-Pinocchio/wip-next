@@ -88,6 +88,8 @@ export default function Card({}: CardProps) {
     setIsOpenDetail(!isOpenDetail);
   };
 
+  const spanTagSytle = 'text-[14px] font-normal text-[#AFAFAF]';
+
   return (
     <li className="flex w-full items-end justify-between">
       <div className="flex  select-none gap-[20px]">
@@ -134,8 +136,12 @@ export default function Card({}: CardProps) {
           </ul>
           {isOpenDetail && (
             <div>
-              <h2>공약 이행 현황</h2>
-              <span>총 공약수 = 완료+추진중+보류+폐기+기타공약수</span>
+              <div className="gap-[12px] text-[16px] font-medium">
+                공약 이행 현황
+              </div>
+              <span className="text-[14px] font-normal text-[#AFAFAF]">
+                총 공약수 = 완료+추진중+보류+폐기+기타공약수
+              </span>
               <DetailTable
                 data={pledgesData}
                 columns={pledgesColumns}
@@ -144,7 +150,9 @@ export default function Card({}: CardProps) {
               />
 
               <h2>성격/내용별 완료 현황</h2>
-              <span>*각 분류별로 완료 공약 수 및 전체 공약수를 기입</span>
+              <span className={`${spanTagSytle}`}>
+                *각 분류별로 완료 공약 수 및 전체 공약수를 기입
+              </span>
               <DetailTable
                 data={completionStatusData}
                 columns={completionStatusColumns}
@@ -153,18 +161,14 @@ export default function Card({}: CardProps) {
               />
 
               <h2>입법현황</h2>
-              <span>*필요 입법 공약 총 수 : 입법이 필요한 공약의 총 수 </span>
-              <span>
-                *입법 의결 완료 공약 총 수 : 입법을 모두 완료한 공약의 총 수
-              </span>
-              <DetailTable
-                data={completionStatusData}
-                columns={completionStatusColumns}
-                colName1={'완료/전체'}
-                colName2={'전체'}
-              />
-              <h2>재정현황</h2>
-              <span>*전체 공약의 재정 현황 합계 </span>
+              <ul>
+                <li className={`${spanTagSytle}`}>
+                  *필요 입법 공약 총 수 : 입법이 필요한 공약의 총 수{' '}
+                </li>
+                <li className={`${spanTagSytle}`}>
+                  *입법 의결 완료 공약 총 수 : 입법을 모두 완료한 공약의 총 수
+                </li>
+              </ul>
               <DetailTable
                 data={legislativeStatusData}
                 columns={legislativeStatusColumns}
@@ -172,7 +176,9 @@ export default function Card({}: CardProps) {
                 colName2={'비고'}
               />
               <h2>재정현황</h2>
-              <span>*전체 공약의 재정 현황 합계 </span>
+              <span className={`${spanTagSytle}`}>
+                *전체 공약의 재정 현황 합계{' '}
+              </span>
               <DetailTable
                 data={financialStatusData}
                 columns={financialStatusColumns}
