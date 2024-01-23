@@ -13,10 +13,7 @@ import {
   PoliticianDetail,
 } from '../../../api/apiTypes';
 
-import {
-  getPoliticiansListData,
-  getPoliticianSingleData,
-} from '../../../api/api';
+import { getDummyDetailData } from '../../../api/api';
 
 interface CardProps {}
 
@@ -24,9 +21,47 @@ const RANDOM_IMAGE = 'https://picsum.photos/102';
 
 const twLabel = 'text-[14px] font-medium leading-[100%]';
 
-export default function Card({}: CardProps) {
-  const politicianListData = getPoliticiansListData(); //전체
-  // const policitianSingleData = getPoliticianSingleData(1); //개별
+//더미데이터
+
+// const {
+//   id,
+//   name,
+//   profile_url,
+//   political_party,
+//   total_promise_count,
+//   completed_promise_count,
+//   promise_execution_rate,
+//   constituency,
+// } = polifakeData;
+
+const pledgesColumns = [
+  { label: '총공약수', key: 'total' },
+  { label: '완료', key: 'completed' },
+  { label: '추진중', key: 'inProgress' },
+  { label: '보류', key: 'pending' },
+  { label: '기타', key: 'other' },
+];
+
+const financialStatusColumns = [
+  { label: '필요재정총액', key: 'totalRequired', width: 4 },
+  { label: '확보재정총액', key: 'secured', width: 4 },
+  { label: '집행재정총액', key: 'executed', width: 4 },
+];
+
+const completionStatusColumns = [
+  { label: '국정공약', key: 'nation' },
+  { label: '지역공약', key: 'region' },
+  { label: '입법공약', key: 'legislative' },
+  { label: '재정공약', key: 'budget' },
+  { label: '임기내', key: 'duringTerm' },
+];
+
+const legislativeStatusColumns = [
+  { label: '필요입법공약총수', key: 'totalRequired', width: 4 },
+  { label: '입법의결완료공약총수', key: 'completedResolution', width: 8 },
+];
+
+const Card = ({ data }: { data: Politician }) => {
   const {
     id,
     name,
@@ -36,73 +71,46 @@ export default function Card({}: CardProps) {
     completed_promise_count,
     promise_execution_rate,
     constituency,
-  } = politicianListData;
+  } = data;
 
-  // const {
-  //   id,
-  //   name,
-  //   assembly_term,
-  //   profile_url,
-  //   political_party,
-  //   elected_count,
-  //   total_promise_count,
-  //   completed_promise_count,
-  //   in_progress_promise_count,
-  //   pending_promise_count,
-  //   discarded_promise_count,
-  //   other_promise_count,
-  //   resolve_required_promise_count,
-  //   resolved_promise_count,
-  //   total_required_funds,
-  //   total_secured_funds,
-  //   total_executed_funds,
-  //   promise_count_detail,
-  //   committee,
-  //   constituency
-  // } = policitianSingleData;
+  const policitianSingleData = getDummyDetailData(id);
+  console.log(policitianSingleData[0].promise_count_detail);
+  const {
+    assembly_term,
+    elected_count,
+    in_progress_promise_count,
+    pending_promise_count,
+    discarded_promise_count,
+    other_promise_count,
+    resolve_required_promise_count,
+    resolved_promise_count,
+    total_required_funds,
+    total_secured_funds,
+    total_executed_funds,
+    promise_count_detail,
+    committee,
+  } = policitianSingleData[0];
 
-  const pledgesData: PledgesData[] = [
-    { total: 100, completed: 30, inProgress: 40, pending: 20, other: 10 },
-  ];
+  const {
+    completed_national_promise_count,
+    total_national_promise_count,
+    completed_local_promise_count,
+    total_local_promise_count,
+    completed_legislative_promise_count,
+    total_legislative_promise_count,
+    completed_financial_promise_count,
+    total_financial_promise_count,
+    completed_in_term_promise_count,
+    total_in_term_promise_count,
+    completed_after_term_promise_count,
+    total_after_term_promise_count,
+    completed_ongoing_business_promise_count,
+    total_ongoing_business_promise_count,
+    completed_new_business_promise_count,
+    total_new_business_promise_count,
+  } = policitianSingleData[0].promise_count_detail;
 
-  const pledgesColumns = [
-    { label: '총공약수', key: 'total' },
-    { label: '완료', key: 'completed' },
-    { label: '추진중', key: 'inProgress' },
-    { label: '보류', key: 'pending' },
-    { label: '기타', key: 'other' },
-  ];
-
-  const completionStatusData: CompletionStatusData[] = [
-    { nation: 50, region: 25, legislative: 10, budget: 10, duringTerm: 5 },
-  ];
-
-  const completionStatusColumns = [
-    { label: '국정공약', key: 'nation' },
-    { label: '지역공약', key: 'region' },
-    { label: '입법공약', key: 'legislative' },
-    { label: '재정공약', key: 'budget' },
-    { label: '임기내', key: 'duringTerm' },
-  ];
-
-  const legislativeStatusColumns = [
-    { label: '필요입법공약총수', key: 'totalRequired', width: 4 },
-    { label: '입법의결완료공약총수', key: 'completedResolution', width: 8 },
-  ];
-
-  const legislativeStatusData: LegislativeStatusData[] = [
-    { totalRequired: 111, completedResolution: 222 },
-  ];
-
-  const financialStatusColumns = [
-    { label: '필요재정총액', key: 'totalRequired', width: 4 },
-    { label: '확보재정총액', key: 'secured', width: 4 },
-    { label: '집행재정총액', key: 'executed', width: 4 },
-  ];
-
-  const financialStatusData: FinancialStatusData[] = [
-    { totalRequired: 1000000, secured: 500000, executed: 300000 },
-  ];
+  const { region, district, section } = constituency[0];
 
   const [isOpenDetail, setIsOpenDetail] = useState(false);
 
@@ -110,10 +118,42 @@ export default function Card({}: CardProps) {
     setIsOpenDetail(!isOpenDetail);
   };
 
+  const completionStatusData: CompletionStatusData[] = [
+    {
+      nation: `${completed_national_promise_count}/${total_national_promise_count}`,
+      region: completed_local_promise_count,
+      legislative: completed_legislative_promise_count,
+      budget: completed_financial_promise_count,
+      duringTerm: completed_in_term_promise_count,
+    },
+  ];
+  const pledgesData: PledgesData[] = [
+    {
+      total: total_promise_count,
+      completed: completed_promise_count,
+      inProgress: in_progress_promise_count,
+      pending: pending_promise_count,
+      other: other_promise_count,
+    },
+  ];
+  const legislativeStatusData: LegislativeStatusData[] = [
+    {
+      totalRequired: resolve_required_promise_count,
+      completedResolution: resolved_promise_count,
+    },
+  ];
+  const financialStatusData: FinancialStatusData[] = [
+    {
+      totalRequired: total_required_funds,
+      secured: total_secured_funds,
+      executed: total_executed_funds,
+    },
+  ];
+
   const spanTagSytle = 'text-[14px] font-normal text-[#AFAFAF]';
 
   return (
-    <li className="flex w-full items-end justify-between">
+    <li className="flex w-full items-end justify-between" key={id}>
       <div className="flex  select-none gap-[20px]">
         <div className="relative">
           <Image
@@ -124,22 +164,24 @@ export default function Card({}: CardProps) {
             height={104}
           />
           <span className="absolute left-0 top-0 flex min-h-[27px] min-w-[27px] items-center justify-center rounded-br-[12px] rounded-tl-[12px] bg-[#F3E8FF] p-[5px] text-[14px] font-semibold leading-[100%] text-primary-text">
-            1
+            {id + 1}
           </span>
         </div>
         <div className="flex flex-col gap-[16px]">
           <div className="flex gap-[10px]">
             <span className="text-[24px] font-semibold leading-[100%] text-black">
-              김OO
+              {name}
             </span>
-            <Badge>마포구을</Badge>
+            <Badge>{completed_promise_count}</Badge>
           </div>
           <ul className="flex flex-col gap-[10px]">
             <li className="flex gap-[10px]">
-              <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>선거구</span>
+              <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>
+                {section}
+              </span>
               <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
-                <span>서울특별시</span>
-                <span>마포구을</span>
+                <span>{region}</span>
+                <span>{district}</span>
               </p>
             </li>
             <li className="flex gap-[10px]">
@@ -147,13 +189,19 @@ export default function Card({}: CardProps) {
                 공약이행률
               </span>
               <p className={twMerge(twLabel, 'flex gap-[4px] text-[#636363]')}>
-                <span className="font-bold text-primary-text">80%</span>
-                <span>(4/5개)</span>
+                <span className="font-bold text-primary-text">
+                  {promise_execution_rate}%
+                </span>
+                <span>
+                  ({completed_promise_count}/{total_promise_count})
+                </span>
               </p>
             </li>
             <li className="flex gap-[10px]">
               <span className={twMerge(twLabel, 'text-[#BDBDBD]')}>소속</span>
-              <p className={twMerge(twLabel, 'text-[#636363]')}>더불어민주당</p>
+              <p className={twMerge(twLabel, 'text-[#636363]')}>
+                {political_party}
+              </p>
             </li>
           </ul>
           {isOpenDetail && (
@@ -219,4 +267,6 @@ export default function Card({}: CardProps) {
       </button>
     </li>
   );
-}
+};
+
+export default Card;

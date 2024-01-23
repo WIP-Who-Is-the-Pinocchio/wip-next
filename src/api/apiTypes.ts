@@ -94,7 +94,7 @@ export interface PledgesData {
 }
 
 export interface CompletionStatusData {
-  nation: number;
+  nation: string;
   region: number;
   legislative: number;
   budget: number;

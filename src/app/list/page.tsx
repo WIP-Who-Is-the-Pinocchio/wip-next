@@ -8,8 +8,8 @@ import Tabs, { Tab } from '../components/list/Tabs';
 import Regions from '../components/list/Regions';
 import Card from '../components/congress/Card';
 import { useState } from 'react';
-import { getPoliticiansListData } from '../../api/api';
-
+import { getPoliticiansListData, getDumyData } from '../../api/api';
+import { Politician } from '../../api/apiTypes';
 const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
 // const tabs: Tab[] = ['COUNTRYWIDE'];
 export default function List() {
@@ -18,6 +18,7 @@ export default function List() {
 
   // 임시 더미 배열
   const MPArray = Array.from({ length: 10 }, (_, index) => index);
+  const polifakeData = getDumyData();
 
   const handleSelectTab = (tab: Tab) => () => {
     setSelectedTab(tab);
@@ -31,7 +32,7 @@ export default function List() {
     console.log(`검색어: ${search}`);
   };
 
-  const politiciansData = getPoliticiansListData();
+  // const politiciansData = getPoliticiansListData();
   // console.log(politiciansData);
 
   return (
@@ -80,8 +81,8 @@ export default function List() {
         </div>
         {selectedTab === 'COUNTRYWIDE' ? (
           <>
-            {MPArray.map((_, index) => (
-              <Card key={index} />
+            {polifakeData.map((item: Politician) => (
+              <Card data={item} key={item.id} />
             ))}
           </>
         ) : (

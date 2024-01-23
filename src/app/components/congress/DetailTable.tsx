@@ -31,7 +31,7 @@ const DetailTable: React.FC<TableProps> = ({
             <td className={`${commonCellStyle} text-center`}>{colName1}</td>
             {columns.map((column, colIndex) => (
               <td key={colIndex} className={`${commonCellStyle} text-center`}>
-                {row[column.key]} / {100}
+                {row[column.key]}
               </td>
             ))}
           </tr>
