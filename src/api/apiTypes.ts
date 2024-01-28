@@ -6,7 +6,7 @@ export interface Constituency {
 }
 
 export interface Politician {
-  id: string;
+  id: number;
   name: string;
   profile_url: string;
   political_party: string;
