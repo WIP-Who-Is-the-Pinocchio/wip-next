@@ -105,9 +105,9 @@ export default function Regions() {
   };
 
   const handleSearchBtn = () => {
-    const selectedRegion = selectedValues[0];
-    router.push(`http://localhost:3000/region/${selectedRegion}`); //region/서울
-    console.log(selectedRegion);
+    const param = selectedValues[0];
+    router.push(`/region/${param}`); //region/서울
+    console.log(param);
   };
 
   const handleItemClick = (value: CurrentStepItem) => {
