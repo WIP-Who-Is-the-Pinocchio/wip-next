@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-
+import { useRouter } from 'next/navigation';
 const step1 = [
   '서울',
   '인천',
@@ -22,6 +22,25 @@ const step1 = [
   '전북',
   '전남',
 ];
+
+// const step1 = [
+//  {name:'서울' , value:'seoul'},
+//  {name:'인천' , value:'incheon'},
+//  {name:'부산' , value:'busan'},
+//  {name:'대전' , value:'daejeon'},
+//  {name:'울산' , value:'ulsan'} ,
+//  {name:'광주' , value:'gwangju'},
+//  {name:'제주' , value:'jeju'} ,
+//  {name:'세종' , value:'sejong'},
+//  {name:'경기' , value:'gyeonggi'},
+//  {name:'강원' , value:'gangwon'} ,
+//  {name:'충북' , value:'chungbuk'} ,
+//  {name:'충남' , value:'chungnam'}  ,
+//  {name:'경북' , value:'gyeongbuk'} ,
+//  {name:'경남' , value:'gyeongnam'} ,
+//  {name:'전북' , value:'jeonbuk'} ,
+//  {name:'전남' , value:'jeonnam'} ,
+// ];
 
 const step2 = [
   '전체',
@@ -55,11 +74,13 @@ const step2 = [
 const step3 = ['강남구 전체', '갑', '을', '병'];
 
 type Level = number;
+type CurrentStepItem = string;
 
 export default function Regions() {
   const [currentLevel, setCurrentLevel] = useState<Level>(0);
-
   const [currentStep, setCurrentStep] = useState<string[]>(step1);
+  const [selectedValues, setSelectedValues] = useState<CurrentStepItem[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     switch (currentLevel) {
@@ -84,7 +105,14 @@ export default function Regions() {
   };
 
   const handleSearchBtn = () => {
-    console.log('클릭');
+    const selectedRegion = selectedValues[0];
+    router.push(`http://localhost:3000/region/${selectedRegion}`); //region/서울
+    console.log(selectedRegion);
+  };
+
+  const handleItemClick = (value: CurrentStepItem) => {
+    setSelectedValues((prevValues) => [...prevValues, value]);
+    console.log(value);
   };
 
   return (
@@ -93,15 +121,16 @@ export default function Regions() {
         className="max-h-[464px] list-none overflow-y-scroll bg-white py-[4px] shadow-md"
         onClick={handleSelectRegion}
       >
-        {currentStep.map((d) => (
+        {currentStep.map((item, idx) => (
           <li
-            key={d}
+            key={item + idx}
             className={twMerge(
               'flex items-center justify-center p-[12px] text-[14px] font-medium leading-[22px] text-[#070707]',
               'hover:bg-stone-100'
             )}
+            onClick={() => handleItemClick(item)}
           >
-            {d}
+            {item}
           </li>
         ))}
       </ul>
