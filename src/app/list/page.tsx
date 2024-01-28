@@ -79,14 +79,25 @@ export default function List() {
             alt="검색"
           />
         </div>
-        {selectedTab === 'COUNTRYWIDE' ? (
+        {/* {selectedTab === 'COUNTRYWIDE' ? (
           <>
-            {polifakeData.map((item: Politician) => (
+            {polifakeData.map((item:any) => (
               <Card data={item} key={item.id} />
             ))}
           </>
         ) : (
           <Regions />
+        )} */}
+        {selectedTab === 'COUNTRYWIDE' ? (
+          <>
+            {polifakeData.map((item: any) => (
+              <Card data={item} key={item.id} />
+            ))}
+          </>
+        ) : selectedTab === 'REGION' ? (
+          <Regions />
+        ) : (
+          <div className="h-[500px]">Coming soon</div>
         )}
       </article>
     </section>

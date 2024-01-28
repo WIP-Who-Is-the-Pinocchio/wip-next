@@ -83,6 +83,10 @@ export default function Regions() {
     }
   };
 
+  const handleSearchBtn = () => {
+    console.log('클릭');
+  };
+
   return (
     <div className="-mx-[20px] w-full bg-[#F8F8F8] px-[22px] pb-[91px] pt-[58px]">
       <ul
@@ -101,7 +105,10 @@ export default function Regions() {
           </li>
         ))}
       </ul>
-      <div className="fixed bottom-0 left-0 flex w-full items-center justify-center rounded-tl-[12px] rounded-tr-[12px] bg-[#373737] pb-[48px] pt-[24px] text-[16px] font-semibold not-italic leading-[100%] text-white">
+      <div
+        className="fixed bottom-0 left-0 flex w-full items-center justify-center rounded-tl-[12px] rounded-tr-[12px] bg-[#373737] pb-[48px] pt-[24px] text-[16px] font-semibold not-italic leading-[100%] text-white"
+        onClick={handleSearchBtn}
+      >
         선택
       </div>
     </div>

@@ -1,71 +1,71 @@
 export interface Constituency {
-  id: number;
+  id: string;
   region: string;
   district: string;
   section: string;
 }
 
 export interface Politician {
-  id: number;
+  id: string;
   name: string;
   profile_url: string;
   political_party: string;
-  total_promise_count: number;
-  completed_promise_count: number;
-  promise_execution_rate: number;
+  total_promise_count: string;
+  completed_promise_count: string;
+  promise_execution_rate: string;
   constituency: Constituency[];
 }
 
 export interface PromiseCountDetail {
-  completed_national_promise_count: number;
-  total_national_promise_count: number;
-  completed_local_promise_count: number;
-  total_local_promise_count: number;
-  completed_legislative_promise_count: number;
-  total_legislative_promise_count: number;
-  completed_financial_promise_count: number;
-  total_financial_promise_count: number;
-  completed_in_term_promise_count: number;
-  total_in_term_promise_count: number;
-  completed_after_term_promise_count: number;
-  total_after_term_promise_count: number;
-  completed_ongoing_business_promise_count: number;
-  total_ongoing_business_promise_count: number;
-  completed_new_business_promise_count: number;
-  total_new_business_promise_count: number;
+  completed_national_promise_count: string;
+  total_national_promise_count: string;
+  completed_local_promise_count: string;
+  total_local_promise_count: string;
+  completed_legislative_promise_count: string;
+  total_legislative_promise_count: string;
+  completed_financial_promise_count: string;
+  total_financial_promise_count: string;
+  completed_in_term_promise_count: string;
+  total_in_term_promise_count: string;
+  completed_after_term_promise_count: string;
+  total_after_term_promise_count: string;
+  completed_ongoing_business_promise_count: string;
+  total_ongoing_business_promise_count: string;
+  completed_new_business_promise_count: string;
+  total_new_business_promise_count: string;
 }
 
 export interface Committee {
-  id: number;
+  id: string;
   is_main: boolean;
   name: string;
 }
 
 export interface Constituency {
-  id: number;
+  id: string;
   region: string;
   district: string;
   section: string;
 }
 
 export interface PoliticianDetail {
-  id: number;
+  id: string;
   name: string;
-  assembly_term: number;
+  assembly_term: string;
   profile_url: string;
   political_party: string;
-  elected_count: number;
-  total_promise_count: number;
-  completed_promise_count: number;
-  in_progress_promise_count: number;
-  pending_promise_count: number;
-  discarded_promise_count: number;
-  other_promise_count: number;
-  resolve_required_promise_count: number;
-  resolved_promise_count: number;
-  total_required_funds: number;
-  total_secured_funds: number;
-  total_executed_funds: number;
+  elected_count: string;
+  total_promise_count: string;
+  completed_promise_count: string;
+  in_progress_promise_count: string;
+  pending_promise_count: string;
+  discarded_promise_count: string;
+  other_promise_count: string;
+  resolve_required_promise_count: string;
+  resolved_promise_count: string;
+  total_required_funds: string;
+  total_secured_funds: string;
+  total_executed_funds: string;
   promise_count_detail: PromiseCountDetail;
   committee: Committee[];
   constituency: Constituency[];
@@ -86,8 +86,8 @@ export interface TableProps {
 }
 
 export interface PledgesData {
-  total: number;
-  completed: number;
+  total: string;
+  completed: string;
   inProgress: number;
   pending: number;
   other: number;
@@ -95,10 +95,10 @@ export interface PledgesData {
 
 export interface CompletionStatusData {
   nation: string;
-  region: number;
-  legislative: number;
-  budget: number;
-  duringTerm: number;
+  region: string;
+  legislative: string;
+  budget: string;
+  duringTerm: string;
 }
 
 export interface LegislativeStatusData {

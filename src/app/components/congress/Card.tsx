@@ -119,15 +119,17 @@ const Card = ({ data }: { data: Politician }) => {
   };
 
   const completionStatusData: CompletionStatusData[] = [
+    //성격내용별
     {
       nation: `${completed_national_promise_count}/${total_national_promise_count}`,
-      region: completed_local_promise_count,
-      legislative: completed_legislative_promise_count,
-      budget: completed_financial_promise_count,
-      duringTerm: completed_in_term_promise_count,
+      region: `${completed_local_promise_count}/${total_local_promise_count}`,
+      legislative: `${completed_legislative_promise_count}/${total_legislative_promise_count}`,
+      budget: `${completed_financial_promise_count}/${total_financial_promise_count}`,
+      duringTerm: `${completed_in_term_promise_count}/${total_in_term_promise_count}`,
     },
   ];
   const pledgesData: PledgesData[] = [
+    //공약 이행현황
     {
       total: total_promise_count,
       completed: completed_promise_count,
@@ -137,12 +139,14 @@ const Card = ({ data }: { data: Politician }) => {
     },
   ];
   const legislativeStatusData: LegislativeStatusData[] = [
+    //입법현황
     {
       totalRequired: resolve_required_promise_count,
       completedResolution: resolved_promise_count,
     },
   ];
   const financialStatusData: FinancialStatusData[] = [
+    // 재정현황
     {
       totalRequired: total_required_funds,
       secured: total_secured_funds,
