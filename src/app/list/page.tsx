@@ -1,24 +1,21 @@
 'use client';
 
-import Image from 'next/image';
+import { useState } from 'react';
 import type { ChangeEventHandler } from 'react';
+import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
+
 import Rank from '../components/rank/Rank';
 import Tabs, { Tab } from '../components/list/Tabs';
 import Regions from '../components/list/Regions';
-import Card from '../components/congress/Card';
-import { useState } from 'react';
-import { getPoliticiansListData, getDumyData } from '../../api/api';
-import { Politician } from '../../api/apiTypes';
+import { MPBox } from '../components/congress/MPBox';
+import { DUMMY_DATA, MPDataType } from '../../api/api';
+
 const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
-// const tabs: Tab[] = ['COUNTRYWIDE'];
+
 export default function List() {
   const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
   const [search, setSearch] = useState('');
-
-  // 임시 더미 배열
-  const MPArray = Array.from({ length: 10 }, (_, index) => index);
-  const polifakeData = getDumyData();
 
   const handleSelectTab = (tab: Tab) => () => {
     setSelectedTab(tab);
@@ -31,9 +28,6 @@ export default function List() {
   const handleSearch = () => {
     console.log(`검색어: ${search}`);
   };
-
-  // const politiciansData = getPoliticiansListData();
-  // console.log(politiciansData);
 
   return (
     <section className="flex flex-col items-center py-[30px]">
@@ -90,8 +84,8 @@ export default function List() {
         )} */}
         {selectedTab === 'COUNTRYWIDE' ? (
           <>
-            {polifakeData.map((item: any) => (
-              <Card data={item} key={item.id} />
+            {DUMMY_DATA.map((mpData: MPDataType, index) => (
+              <MPBox key={index} mpData={mpData} />
             ))}
           </>
         ) : selectedTab === 'REGION' ? (
