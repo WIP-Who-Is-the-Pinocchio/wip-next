@@ -73,7 +73,7 @@ export default function List() {
               src="/search_icon.svg"
               width={18}
               height={18}
-              alt="검색"
+              alt="검색 버튼 아이콘"
             />
           </div>
           {/* {selectedTab === 'COUNTRYWIDE' ? (

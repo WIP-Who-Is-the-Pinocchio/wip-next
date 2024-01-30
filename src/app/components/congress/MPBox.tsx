@@ -47,7 +47,7 @@ export const MPBox = ({ mpData }: MPBoxProps) => {
             src={profileData.profile_url}
             width={104}
             height={104}
-            alt="mpImage"
+            alt="국회의원 프로필 사진"
           />
           <div className="absolute left-0 top-0 flex h-[28px] w-[28px] items-center justify-center rounded-br-xl bg-[#F3E8FF] text-[#A855F7]">
             1
