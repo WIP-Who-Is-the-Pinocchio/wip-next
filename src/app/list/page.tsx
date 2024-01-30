@@ -18,6 +18,19 @@ export default function List() {
   const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
   const [search, setSearch] = useState('');
 
+  const sortData = DUMMY_DATA.sort((a, b) => {
+    const ratioA =
+      a.base_info.total_promise_count > 0
+        ? a.base_info.completed_promise_count / a.base_info.total_promise_count
+        : 0;
+    const ratioB =
+      b.base_info.total_promise_count > 0
+        ? b.base_info.completed_promise_count / b.base_info.total_promise_count
+        : 0;
+
+    return ratioB - ratioA; // 내림차순 정렬
+  });
+
   const handleSelectTab = (tab: Tab) => () => {
     setSelectedTab(tab);
   };
@@ -85,19 +98,18 @@ export default function List() {
         ) : (
           <Regions />
         )} */}
-          {selectedTab === 'COUNTRYWIDE' ? (
-            <>
-              {DUMMY_DATA.map((mpData: MPDataType, index) => (
-                <MPBox key={index} mpData={mpData} />
-              ))}
-            </>
-          ) : selectedTab === 'REGION' ? (
-            <Regions />
-          ) : (
-            <div className="h-[500px]">Coming soon</div>
-          )}
-        </article>
-      </section>
-    </>
+        {selectedTab === 'COUNTRYWIDE' ? (
+          <>
+            {sortData.map((mpData: MPDataType, index) => (
+              <MPBox key={index} mpData={mpData} />
+            ))}
+          </>
+        ) : selectedTab === 'REGION' ? (
+          <Regions />
+        ) : (
+          <div className="h-[500px]">Coming soon</div>
+        )}
+      </article>
+    </section>
   );
 }

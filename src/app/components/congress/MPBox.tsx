@@ -10,13 +10,6 @@ import { MPDataType } from '@/api/api';
 const CONTAINER_GAP = 'flex gap-[10px]';
 const TEXT_STYLE = 'text-sm text-[#BDBDBD]';
 
-// 테이블 더미 데이터
-const tableHeaders = ['총 공약수', '완료', '추진중', '보류', '기타'];
-const tableData = [
-  { category: '공약수', details: ['/', '/', '/', '/', '/'] },
-  { category: '비고', details: ['/', '/', '/', '/', '/'] },
-];
-
 interface MPBoxProps {
   mpData: MPDataType;
 }
@@ -32,6 +25,9 @@ export const MPBox = ({ mpData }: MPBoxProps) => {
     completedCount: number,
     totalCount: number
   ) => {
+    if (!completedCount) {
+      return 0;
+    }
     return Math.round((completedCount / totalCount) * 100);
   };
 
@@ -54,11 +50,11 @@ export const MPBox = ({ mpData }: MPBoxProps) => {
           </div>
         </div>
         <div className="flex flex-col justify-between">
-          <div className="flex items-center gap-[10px]">
+          <div className="flex items-center gap-[10px] leading-none	">
             <span className="text-[24px] font-semibold">
               {profileData.name}
             </span>
-            <div className="h-fit rounded-xl border border-[#E9D5FF] bg-[#FAF5FF] px-3 py-1.5 text-[14px] font-medium text-[#9333EA]">
+            <div className="rounded-xl border border-[#E9D5FF] bg-[#FAF5FF] px-3 py-1.5 text-[14px] font-medium text-[#9333EA]">
               {regionData.district}
               {regionData.section ? regionData.section : ''}
             </div>
@@ -101,13 +97,7 @@ export const MPBox = ({ mpData }: MPBoxProps) => {
       >
         {isOpen ? '-' : '+'}
       </button>
-      {isOpen && (
-        <MPBoxDetail
-          mpData={mpData}
-          tableHeaders={tableHeaders}
-          tableData={tableData}
-        />
-      )}
+      {isOpen && <MPBoxDetail mpData={mpData} />}
     </section>
   );
 };
