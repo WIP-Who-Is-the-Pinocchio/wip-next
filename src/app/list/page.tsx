@@ -101,7 +101,11 @@ export default function List() {
           {selectedTab === 'COUNTRYWIDE' ? (
             <>
               {sortData.map((mpData: MPDataType, index) => (
-                <MPBox key={index} mpData={mpData} />
+                <MPBox
+                  key={mpData.base_info.name}
+                  mpData={mpData}
+                  ranking={index}
+                />
               ))}
             </>
           ) : selectedTab === 'REGION' ? (

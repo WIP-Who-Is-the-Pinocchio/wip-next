@@ -12,9 +12,10 @@ const TEXT_STYLE = 'text-sm text-[#BDBDBD]';
 
 interface MPBoxProps {
   mpData: MPDataType;
+  ranking: number;
 }
 
-export const MPBox = ({ mpData }: MPBoxProps) => {
+export const MPBox = ({ mpData, ranking }: MPBoxProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // 데이터 분리
@@ -46,7 +47,7 @@ export const MPBox = ({ mpData }: MPBoxProps) => {
             alt="국회의원 프로필 사진"
           />
           <div className="absolute left-0 top-0 flex h-[28px] w-[28px] items-center justify-center rounded-br-xl bg-[#F3E8FF] text-[#A855F7]">
-            1
+            {ranking + 1}
           </div>
         </div>
         <div className="flex flex-col justify-between">
