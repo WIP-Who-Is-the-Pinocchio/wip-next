@@ -19,7 +19,7 @@ export default function Rank({}: RankProps) {
           <Image
             className="rounded-full border-[1px] border-solid border-[#F1F1F1]"
             src={RANDOM_IMAGE}
-            alt=""
+            alt="국회의원 프로필 사진"
             width={74}
             height={74}
           />
@@ -35,7 +35,7 @@ export default function Rank({}: RankProps) {
           <Image
             className="rounded-full border-[1px] border-solid border-[#F1F1F1]"
             src={RANDOM_IMAGE}
-            alt=""
+            alt="국회의원 프로필 사진"
             width={104}
             height={104}
           />
@@ -51,7 +51,7 @@ export default function Rank({}: RankProps) {
           <Image
             className="rounded-full border-[1px] border-solid border-[#F1F1F1]"
             src={RANDOM_IMAGE}
-            alt=""
+            alt="국회의원 프로필 사진"
             width={74}
             height={74}
           />
