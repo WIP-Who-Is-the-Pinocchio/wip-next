@@ -102,7 +102,7 @@ export default function List() {
             <>
               {sortData.map((mpData: MPDataType, index) => (
                 <MPBox
-                  key={mpData.base_info.name}
+                  key={`${mpData.base_info.name}-${index}`}
                   mpData={mpData}
                   ranking={index}
                 />
