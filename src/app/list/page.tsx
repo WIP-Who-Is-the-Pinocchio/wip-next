@@ -8,6 +8,7 @@ import { twMerge } from 'tailwind-merge';
 import Rank from '../components/rank/Rank';
 import Tabs, { Tab } from '../components/list/Tabs';
 import Regions from '../components/list/Regions';
+import SEO from '../components/SEO';
 import { MPBox } from '../components/congress/MPBox';
 import { DUMMY_DATA, MPDataType } from '../../api/api';
 
@@ -30,50 +31,52 @@ export default function List() {
   };
 
   return (
-    <section className="flex flex-col items-center py-[30px]">
-      <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
-        WIP
-      </div>
-      <article className="mb-[40px] mt-[10px] px-[20px]">
-        <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
-          누가 피노키오인가?
-        </p>
-      </article>
-      <article className="mb-[40px] px-[30px]">
-        <Rank />
-      </article>
-      <article
-        style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
-        className="mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px] pt-[24px]"
-      >
-        <Tabs
-          tabs={tabs}
-          selectedTab={selectedTab}
-          onSelectTab={handleSelectTab}
-        />
-        <div
-          className="border-b-solid relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]"
-          onClick={handleSearch}
-        >
-          <input
-            className={twMerge(
-              'w-full pr-[34px] text-[18px] leading-[100%] text-black outline-none',
-              'placeholder:text-[18px] placeholder:font-normal placeholder:not-italic placeholder:leading-[100%] placeholder:text-[#C1C1C1]'
-            )}
-            value={search}
-            type="text"
-            placeholder="이름으로 검색하기"
-            onChange={handleChange}
-          />
-          <Image
-            className="absolute right-0 top-[12px] hover:cursor-pointer"
-            src="/search_icon.svg"
-            width={18}
-            height={18}
-            alt="검색"
-          />
+    <>
+      <SEO title="국회의원 공약이행률 순위" />
+      <section className="flex flex-col items-center py-[30px]">
+        <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
+          WIP
         </div>
-        {/* {selectedTab === 'COUNTRYWIDE' ? (
+        <article className="mb-[40px] mt-[10px] px-[20px]">
+          <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
+            누가 피노키오인가?
+          </p>
+        </article>
+        <article className="mb-[40px] px-[30px]">
+          <Rank />
+        </article>
+        <article
+          style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
+          className="mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px] pt-[24px]"
+        >
+          <Tabs
+            tabs={tabs}
+            selectedTab={selectedTab}
+            onSelectTab={handleSelectTab}
+          />
+          <div
+            className="border-b-solid relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]"
+            onClick={handleSearch}
+          >
+            <input
+              className={twMerge(
+                'w-full pr-[34px] text-[18px] leading-[100%] text-black outline-none',
+                'placeholder:text-[18px] placeholder:font-normal placeholder:not-italic placeholder:leading-[100%] placeholder:text-[#C1C1C1]'
+              )}
+              value={search}
+              type="text"
+              placeholder="이름으로 검색하기"
+              onChange={handleChange}
+            />
+            <Image
+              className="absolute right-0 top-[12px] hover:cursor-pointer"
+              src="/search_icon.svg"
+              width={18}
+              height={18}
+              alt="검색"
+            />
+          </div>
+          {/* {selectedTab === 'COUNTRYWIDE' ? (
           <>
             {polifakeData.map((item:any) => (
               <Card data={item} key={item.id} />
@@ -82,18 +85,19 @@ export default function List() {
         ) : (
           <Regions />
         )} */}
-        {selectedTab === 'COUNTRYWIDE' ? (
-          <>
-            {DUMMY_DATA.map((mpData: MPDataType, index) => (
-              <MPBox key={index} mpData={mpData} />
-            ))}
-          </>
-        ) : selectedTab === 'REGION' ? (
-          <Regions />
-        ) : (
-          <div className="h-[500px]">Coming soon</div>
-        )}
-      </article>
-    </section>
+          {selectedTab === 'COUNTRYWIDE' ? (
+            <>
+              {DUMMY_DATA.map((mpData: MPDataType, index) => (
+                <MPBox key={index} mpData={mpData} />
+              ))}
+            </>
+          ) : selectedTab === 'REGION' ? (
+            <Regions />
+          ) : (
+            <div className="h-[500px]">Coming soon</div>
+          )}
+        </article>
+      </section>
+    </>
   );
 }
