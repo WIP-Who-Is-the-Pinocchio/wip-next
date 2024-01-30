@@ -98,18 +98,19 @@ export default function List() {
         ) : (
           <Regions />
         )} */}
-        {selectedTab === 'COUNTRYWIDE' ? (
-          <>
-            {sortData.map((mpData: MPDataType, index) => (
-              <MPBox key={index} mpData={mpData} />
-            ))}
-          </>
-        ) : selectedTab === 'REGION' ? (
-          <Regions />
-        ) : (
-          <div className="h-[500px]">Coming soon</div>
-        )}
-      </article>
-    </section>
+          {selectedTab === 'COUNTRYWIDE' ? (
+            <>
+              {sortData.map((mpData: MPDataType, index) => (
+                <MPBox key={index} mpData={mpData} />
+              ))}
+            </>
+          ) : selectedTab === 'REGION' ? (
+            <Regions />
+          ) : (
+            <div className="h-[500px]">Coming soon</div>
+          )}
+        </article>
+      </section>
+    </>
   );
 }
