@@ -72,6 +72,7 @@ export interface MPDataType {
   };
   constituency: RegionType[];
   committee: CommitteeType[];
+  roundedRatio?: string;
 }
 
 export const DUMMY_DATA: MPDataType[] = [

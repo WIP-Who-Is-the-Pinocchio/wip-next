@@ -29,6 +29,30 @@ export default function List() {
     console.log(`검색어: ${search}`);
   };
 
+  const getLowestPromiseCount = (data: MPDataType[]) => {
+    // 비율 계산하여 데이터에 추가
+    const dataWithRatio = data.map((item: MPDataType) => {
+      const { completed_promise_count, total_promise_count } = item.base_info;
+      const ratio = (completed_promise_count / total_promise_count || 0) * 100;
+      const roundedRatio = ratio.toFixed(2);
+      return { ...item, roundedRatio };
+    });
+    // console.log(dataWithRatio);
+
+    // 비율을 기준으로 데이터 정렬
+    const sortedData = dataWithRatio.sort(
+      (a: any, b: any) => a.roundedRatio - b.roundedRatio
+    );
+
+    // 가장 낮은 3명의 데이터 선택
+    const lowestThree = sortedData.slice(0, 3);
+
+    return lowestThree;
+  };
+
+  const lowestThreePromises = getLowestPromiseCount(DUMMY_DATA);
+  // console.log(lowestThreePromises);
+
   return (
     <section className="flex flex-col items-center py-[30px]">
       <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
@@ -40,7 +64,10 @@ export default function List() {
         </p>
       </article>
       <article className="mb-[40px] px-[30px]">
-        <Rank />
+        {/* {lowestThreePromises.map((data, idx) => (
+          <Rank data={data} key={idx} />
+        ))} */}
+        <Rank data={lowestThreePromises} />
       </article>
       <article
         style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
