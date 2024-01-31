@@ -8,7 +8,7 @@ interface RankProps {
   data: MPDataType[];
 }
 
-const RANDOM_IMAGE = 'https://picsum.photos/102';
+// const RANDOM_IMAGE = 'https://picsum.photos/102';
 
 const twProfile = 'flex flex-col items-center';
 
