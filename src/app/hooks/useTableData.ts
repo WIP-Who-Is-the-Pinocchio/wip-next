@@ -40,7 +40,6 @@ const useTableData = (mpData: MPDataType) => {
           profileData.other_promise_count,
         ],
       },
-      { category: '비고', details: [null, null, null, null, null, null] },
     ]);
     setPromiseDetailData(() => [
       {
@@ -78,10 +77,6 @@ const useTableData = (mpData: MPDataType) => {
           profileData.resolved_promise_count,
         ],
       },
-      {
-        category: '비고',
-        details: [null, null],
-      },
     ]);
     setFundData(() => [
       {
@@ -91,10 +86,6 @@ const useTableData = (mpData: MPDataType) => {
           divideBillion(profileData.total_secured_funds),
           divideBillion(profileData.total_executed_funds),
         ],
-      },
-      {
-        category: '비고',
-        details: [null, null, null],
       },
     ]);
   }, []);
