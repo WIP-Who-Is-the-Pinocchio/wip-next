@@ -64,7 +64,7 @@ export const MPBox = ({ mpData, ranking }: MPBoxProps) => {
             <div className={twMerge(CONTAINER_GAP)}>
               <span className={twMerge(TEXT_STYLE)}>선거구</span>
               <span className="text-sm text-[#636363]">
-                {`${regionData.region} ${regionData.district}${
+                {`${regionData.region} ${regionData.district ? regionData.district : ''}${
                   regionData.section ? regionData.section : ''
                 }`}
               </span>

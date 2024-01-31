@@ -18,7 +18,7 @@ export type Tab = keyof typeof TabEnum;
 const getTabText = (tab: Tab) => {
   switch (tab) {
     case 'COUNTRYWIDE':
-      return '서울';
+      return '전국';
     case 'REGION':
       return '지역별';
     case 'PARTY':

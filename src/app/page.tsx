@@ -51,7 +51,6 @@ export default function List() {
       const roundedRatio = ratio.toFixed(2);
       return { ...item, roundedRatio };
     });
-    // console.log(dataWithRatio);
 
     // 비율을 기준으로 데이터 정렬
     const sortedData = dataWithRatio.sort(
@@ -59,7 +58,8 @@ export default function List() {
     );
 
     // 가장 낮은 3명의 데이터 선택
-    const lowestThree = sortedData.slice(0, 3);
+    const lowestThree = sortedData.slice(0, 5);
+    console.log(lowestThree);
 
     return lowestThree;
   };
