@@ -25,13 +25,13 @@ export default function Rank(props: RankProps) {
           <span className="mb-[6px] text-[14px] text-[#8C8C8C]">
             {props.data[2].roundedRatio}
           </span>
-          <Image
-            className="rounded-full border-[1px] border-solid border-[#F1F1F1]"
-            src={props.data[2].base_info.profile_url}
-            alt="국회의원 프로필 사진"
-            width={74}
-            height={74}
-          />
+          <picture>
+            <img
+              src={props.data[2].base_info.profile_url}
+              alt="국회의원 프로필사진"
+              className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+            />
+          </picture>
           <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
             {props.data[2].base_info.name}
           </span>
@@ -44,13 +44,13 @@ export default function Rank(props: RankProps) {
           <span className="mb-[8px text-[14px] text-[#8C8C8C]">
             {props.data[0].roundedRatio}
           </span>
-          <Image
-            className="rounded-full border-[1px] border-solid border-[#F1F1F1]"
-            src={props.data[0].base_info.profile_url}
-            alt="국회의원 프로필사진"
-            width={104}
-            height={104}
-          />
+          <picture>
+            <img
+              src={props.data[0].base_info.profile_url}
+              alt="국회의원 프로필사진"
+              className={`h-[104px] w-[104px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+            />
+          </picture>
           <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
             {props.data[0].base_info.name}
           </span>
@@ -63,13 +63,13 @@ export default function Rank(props: RankProps) {
           <span className="mb-[6px] text-[14px] text-[#8C8C8C]">
             {props.data[1].roundedRatio}
           </span>
-          <Image
-            className="rounded-full border-[1px] border-solid border-[#F1F1F1]"
-            src={props.data[1].base_info.profile_url}
-            alt="국회의원 프로필 사진"
-            width={74}
-            height={74}
-          />
+          <picture>
+            <img
+              src={props.data[1].base_info.profile_url}
+              alt="국회의원 프로필사진"
+              className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+            />
+          </picture>
           <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
             {props.data[1].base_info.name}
           </span>
