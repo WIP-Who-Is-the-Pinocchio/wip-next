@@ -16,9 +16,10 @@ const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
 
 export default function List() {
   const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
+  const [mpData, setMpData] = useState<MPDataType[]>(DUMMY_DATA);
   const [search, setSearch] = useState('');
 
-  const sortData = DUMMY_DATA.sort((a, b) => {
+  const sortData = mpData.sort((a, b) => {
     const ratioA =
       a.base_info.total_promise_count > 0
         ? a.base_info.completed_promise_count / a.base_info.total_promise_count
@@ -40,7 +41,11 @@ export default function List() {
   };
 
   const handleSearch = () => {
-    console.log(`검색어: ${search}`);
+    setMpData(
+      DUMMY_DATA.filter((data: MPDataType) =>
+        data.base_info.name.includes(search)
+      )
+    );
   };
 
   const getLowestPromiseCount = (data: MPDataType[]) => {
@@ -103,6 +108,15 @@ export default function List() {
               type="text"
               placeholder="이름으로 검색하기"
               onChange={handleChange}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  if (e.nativeEvent.isComposing) {
+                    return;
+                  }
+                  e.preventDefault();
+                  handleSearch();
+                }
+              }}
             />
             <Image
               className="absolute right-0 top-[12px] hover:cursor-pointer"
@@ -112,15 +126,6 @@ export default function List() {
               alt="검색 버튼 아이콘"
             />
           </div>
-          {/* {selectedTab === 'COUNTRYWIDE' ? (
-          <>
-            {polifakeData.map((item:any) => (
-              <Card data={item} key={item.id} />
-            ))}
-          </>
-        ) : (
-          <Regions />
-        )} */}
           {selectedTab === 'COUNTRYWIDE' ? (
             <>
               {sortData.map((mpData: MPDataType, index) => (
