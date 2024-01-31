@@ -485,7 +485,7 @@ export const DUMMY_DATA: MPDataType[] = [
     constituency: [
       {
         region: '서울',
-        district: '\b동작구',
+        district: '동작구',
         section: '갑',
       },
     ],
@@ -3132,12 +3132,12 @@ export const DUMMY_DATA: MPDataType[] = [
       {
         region: '인천',
         district: '동구',
-        section: '\b을',
+        section: '을',
       },
       {
         region: '인천',
         district: '미추홀구',
-        section: '\b을',
+        section: '을',
       },
     ],
     committee: [
@@ -7622,7 +7622,7 @@ export const DUMMY_DATA: MPDataType[] = [
     constituency: [
       {
         region: '강원',
-        district: '\b홍천군',
+        district: '홍천군',
         section: null,
       },
       {
@@ -8115,7 +8115,7 @@ export const DUMMY_DATA: MPDataType[] = [
     constituency: [
       {
         region: '충남',
-        district: '\b아산시',
+        district: '아산시',
         section: '갑',
       },
     ],

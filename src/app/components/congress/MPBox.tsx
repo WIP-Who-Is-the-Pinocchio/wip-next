@@ -51,7 +51,7 @@ export const MPBox = ({ mpData, ranking }: MPBoxProps) => {
           </div>
         </div>
         <div className="flex flex-col justify-between">
-          <div className="flex items-center gap-[10px] leading-none	">
+          <div className="flex items-center gap-[10px] leading-none">
             <span className="text-[24px] font-semibold">
               {profileData.name}
             </span>
@@ -64,9 +64,9 @@ export const MPBox = ({ mpData, ranking }: MPBoxProps) => {
             <div className={twMerge(CONTAINER_GAP)}>
               <span className={twMerge(TEXT_STYLE)}>선거구</span>
               <span className="text-sm text-[#636363]">
-                {`${regionData.region} ${regionData.district ? regionData.district : ''}${
-                  regionData.section ? regionData.section : ''
-                }`}
+                {`${regionData.region} ${
+                  regionData.district ? regionData.district : ''
+                }${regionData.section ? regionData.section : ''}`}
               </span>
             </div>
             <div className={twMerge(CONTAINER_GAP)}>
