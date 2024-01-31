@@ -1,22 +1,15 @@
 'use client';
 
 import { twMerge } from 'tailwind-merge';
-import Image from 'next/image';
 import { MPDataType } from '../../../api/api';
 
-interface RankProps {
+interface HomeProps {
   data: MPDataType[];
 }
 
-// const RANDOM_IMAGE = 'https://picsum.photos/102';
-
 const twProfile = 'flex flex-col items-center';
 
-export default function Rank(props: RankProps) {
-  // console.log(props.data);
-  // console.log(props.data[0]);
-  // console.log(props.data[1]);
-
+export default function Home(props: HomeProps) {
   return (
     <section className="flex flex-col items-center">
       <div className="mb-[26px]">{'(서울) 공약 이행률 가장 낮은 3인'}</div>
