@@ -295,7 +295,7 @@ const data = [
     constituency: [
       {
         region: '서울',
-        district: '\b동작구',
+        district: '동작구',
         section: '갑',
       },
     ],
