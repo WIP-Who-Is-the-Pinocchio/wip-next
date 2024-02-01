@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge';
 
 import Rank from './components/rank/Rank';
 import Tabs, { Tab } from './components/list/Tabs';
-import Regions from './components/list/Regions';
+import { Region } from './components/list/Region';
 import SEO from './components/SEO';
 import { MPBox } from './components/congress/MPBox';
 import { DUMMY_DATA, MPDataType } from '../api/api';
@@ -88,7 +88,10 @@ export default function List() {
         </article>
         <article
           style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
-          className="mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px] pt-[24px]"
+          className={twMerge(
+            selectedTab === 'REGION' ? '' : 'px-[20px]',
+            'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px]  pt-[24px]'
+          )}
         >
           <Tabs
             tabs={tabs}
@@ -137,7 +140,7 @@ export default function List() {
               ))}
             </>
           ) : selectedTab === 'REGION' ? (
-            <Regions />
+            <Region />
           ) : (
             <div className="h-[500px]">Coming soon</div>
           )}
