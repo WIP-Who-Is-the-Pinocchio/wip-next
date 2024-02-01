@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge';
 
 import Rank from './components/rank/Rank';
 import Tabs, { Tab } from './components/list/Tabs';
-import Regions from './components/list/Regions';
+import { Region } from './components/list/Region';
 import SEO from './components/SEO';
 import { MPBox } from './components/congress/MPBox';
 import { DUMMY_DATA, MPDataType } from '../api/api';
@@ -88,46 +88,49 @@ export default function List() {
         </article>
         <article
           style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
-          className="mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px] pt-[24px]"
+          className={twMerge(
+            selectedTab === 'REGION' ? '' : 'px-[20px]',
+            'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px]  pt-[24px]'
+          )}
         >
           <Tabs
             tabs={tabs}
             selectedTab={selectedTab}
             onSelectTab={handleSelectTab}
           />
-          <div
-            className="border-b-solid relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]"
-            onClick={handleSearch}
-          >
-            <input
-              className={twMerge(
-                'w-full pr-[34px] text-[18px] leading-[100%] text-black outline-none',
-                'placeholder:text-[18px] placeholder:font-normal placeholder:not-italic placeholder:leading-[100%] placeholder:text-[#C1C1C1]'
-              )}
-              value={search}
-              type="text"
-              placeholder="이름으로 검색하기"
-              onChange={handleChange}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  if (e.nativeEvent.isComposing) {
-                    return;
-                  }
-                  e.preventDefault();
-                  handleSearch();
-                }
-              }}
-            />
-            <Image
-              className="absolute right-0 top-[12px] hover:cursor-pointer"
-              src="/search_icon.svg"
-              width={18}
-              height={18}
-              alt="검색 버튼 아이콘"
-            />
-          </div>
           {selectedTab === 'COUNTRYWIDE' ? (
             <>
+              <div
+                className="border-b-solid relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]"
+                onClick={handleSearch}
+              >
+                <input
+                  className={twMerge(
+                    'w-full pr-[34px] text-[18px] leading-[100%] text-black outline-none',
+                    'placeholder:text-[18px] placeholder:font-normal placeholder:not-italic placeholder:leading-[100%] placeholder:text-[#C1C1C1]'
+                  )}
+                  value={search}
+                  type="text"
+                  placeholder="이름으로 검색하기"
+                  onChange={handleChange}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      if (e.nativeEvent.isComposing) {
+                        return;
+                      }
+                      e.preventDefault();
+                      handleSearch();
+                    }
+                  }}
+                />
+                <Image
+                  className="absolute right-0 top-[12px] hover:cursor-pointer"
+                  src="/search_icon.svg"
+                  width={18}
+                  height={18}
+                  alt="검색 버튼 아이콘"
+                />
+              </div>
               {sortData.map((mpData: MPDataType, index) => (
                 <MPBox
                   key={`${mpData.base_info.name}-${index}`}
@@ -137,7 +140,7 @@ export default function List() {
               ))}
             </>
           ) : selectedTab === 'REGION' ? (
-            <Regions />
+            <Region />
           ) : (
             <div className="h-[500px]">Coming soon</div>
           )}
