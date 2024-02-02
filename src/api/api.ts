@@ -6060,7 +6060,7 @@ export const DUMMY_DATA: MPDataType[] = [
         'https://www.assembly.go.kr/static/portal/img/openassm/OFE45081.jpg',
       political_party: '더불어민주당',
       elected_count: 1,
-      total_promise_count: 0,
+      total_promise_count: 98,
       completed_promise_count: 21,
       in_progress_promise_count: 73,
       pending_promise_count: 0,
