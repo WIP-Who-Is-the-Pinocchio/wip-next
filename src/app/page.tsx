@@ -18,6 +18,7 @@ export default function List() {
   const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
   const [mpData, setMpData] = useState<MPDataType[]>(DUMMY_DATA);
   const [search, setSearch] = useState('');
+  const [isSearch, setIsSearch] = useState(false);
 
   const sortData = mpData.sort((a, b) => {
     const ratioA =
@@ -46,6 +47,11 @@ export default function List() {
         data.base_info.name.includes(search)
       )
     );
+    if (search) {
+      setIsSearch(true);
+    } else {
+      setIsSearch(false);
+    }
   };
 
   const getLowestPromiseCount = (data: MPDataType[]) => {
@@ -69,12 +75,11 @@ export default function List() {
   };
 
   const lowestThreePromises = getLowestPromiseCount(DUMMY_DATA);
-  // console.log(lowestThreePromises);
 
   return (
     <>
       <SEO title="국회의원 공약이행률 순위" />
-      <section className="flex flex-col items-center py-[30px]">
+      <section className="flex flex-col items-center pt-[30px]">
         <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
           WIP
         </div>
@@ -100,10 +105,7 @@ export default function List() {
           />
           {selectedTab === 'COUNTRYWIDE' ? (
             <>
-              <div
-                className="border-b-solid relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]"
-                onClick={handleSearch}
-              >
+              <div className="border-b-solid relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]">
                 <input
                   className={twMerge(
                     'w-full pr-[34px] text-[18px] leading-[100%] text-black outline-none',
@@ -129,9 +131,10 @@ export default function List() {
                   width={18}
                   height={18}
                   alt="검색 버튼 아이콘"
+                  onClick={handleSearch}
                 />
               </div>
-              <MPList mpDataList={sortData} />
+              <MPList mpDataList={sortData} isSearch={isSearch} />
             </>
           ) : selectedTab === 'REGION' ? (
             <Region />
