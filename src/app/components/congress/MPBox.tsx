@@ -47,7 +47,7 @@ export const MPBox = ({ mpData, ranking }: MPBoxProps) => {
               {profileData.name}
             </span>
             <div className="rounded-xl border border-[#E9D5FF] bg-[#FAF5FF] px-3 py-1.5 text-[14px] font-medium text-[#9333EA]">
-              {regionData.district}
+              {regionData.district ? regionData.district : regionData.region}
               {regionData.section ? regionData.section : ''}
             </div>
           </div>
