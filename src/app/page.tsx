@@ -9,7 +9,7 @@ import Rank from './components/rank/Rank';
 import Tabs, { Tab } from './components/list/Tabs';
 import { Region } from './components/list/Region';
 import SEO from './components/SEO';
-import { MPBox } from './components/congress/MPBox';
+import { MPList } from './components/congress/MPList';
 import { DUMMY_DATA, MPDataType } from '../api/api';
 
 const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
@@ -131,13 +131,7 @@ export default function List() {
                   alt="검색 버튼 아이콘"
                 />
               </div>
-              {sortData.map((mpData: MPDataType, index) => (
-                <MPBox
-                  key={`${mpData.base_info.name}-${index}`}
-                  mpData={mpData}
-                  ranking={index}
-                />
-              ))}
+              <MPList mpDataList={sortData} />
             </>
           ) : selectedTab === 'REGION' ? (
             <Region />
