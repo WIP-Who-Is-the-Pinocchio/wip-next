@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 
 import { circuitData, regionData, RegionDataType } from '@/api/regionData';
@@ -9,6 +10,7 @@ const CURRENT_REGION = 'font-bold';
 const REGION = 'font-medium bg-[#FAFAFA] border-r border-[#F1F1F1]';
 
 export const Region = () => {
+  const router = useRouter();
   const [currentCircuit, setCurrentCircuit] = useState('서울');
 
   const getRegionArray = (regionData: RegionDataType[], currentKey: string) => {
@@ -16,6 +18,14 @@ export const Region = () => {
       region.hasOwnProperty(currentKey)
     );
     return region ? region[currentKey] : [];
+  };
+
+  const handleRegionClick = (currentRegion: string | null) => {
+    if (currentRegion && currentRegion.includes('전체')) {
+      return router.push(`/region/${currentRegion.split(' ')[0]}`);
+    }
+
+    return router.push(`/region/${currentRegion}`);
   };
 
   return (
@@ -35,16 +45,25 @@ export const Region = () => {
         ))}
       </article>
       <article className="flex-grow">
-        {getRegionArray(regionData, currentCircuit).map((region) => (
-          <>
+        {[
+          `${currentCircuit} 전체`,
+          ...getRegionArray(regionData, currentCircuit),
+        ].map((region) => (
+          <div key={region}>
             {region ? (
-              <div className="border-b border-[#F1F1F1] py-4" key={region}>
+              <div
+                key={region}
+                className="border-b border-[#F1F1F1] py-4"
+                onClick={() => {
+                  handleRegionClick(region);
+                }}
+              >
                 {region}
               </div>
             ) : (
               <div />
             )}
-          </>
+          </div>
         ))}
       </article>
     </section>
