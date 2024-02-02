@@ -12,10 +12,12 @@ const twProfile = 'flex flex-col items-center';
 export default function Rank(props: RankProps) {
   return (
     <section className="flex flex-col items-center">
-      <div className="mb-[26px]">{'(전국) 공약 이행률 가장 낮은 3인'}</div>
+      <div className="mb-[26px] font-semibold">
+        {'(전국) 공약 이행률 가장 낮은 3인'}
+      </div>
       <article className="flex items-end gap-[40px]">
         <div className={twMerge(twProfile)}>
-          <span className="mb-[6px] text-[14px] text-[#8C8C8C]">
+          <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
             {props.data[2].roundedRatio}
           </span>
           <picture>
@@ -34,7 +36,7 @@ export default function Rank(props: RankProps) {
           </span>
         </div>
         <div className={twMerge(twProfile)}>
-          <span className="mb-[8px text-[14px] text-[#8C8C8C]">
+          <span className="mb-[8px text-[14px] font-semibold text-[#8C8C8C]">
             {props.data[0].roundedRatio}
           </span>
           <picture>
@@ -47,13 +49,13 @@ export default function Rank(props: RankProps) {
           <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
             {props.data[0].base_info.name}
           </span>
-          <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C]">
+          <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C] ">
             {props.data[0].constituency[0].district}
             {props.data[0].constituency[0].section}
           </span>
         </div>
         <div className={twMerge(twProfile)}>
-          <span className="mb-[6px] text-[14px] text-[#8C8C8C]">
+          <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
             {props.data[1].roundedRatio}
           </span>
           <picture>
