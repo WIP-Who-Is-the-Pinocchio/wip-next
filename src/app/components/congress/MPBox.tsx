@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
 import { MPBoxDetail } from '../congress/MPBoxDetail';
+import { percentagePromiseCount } from '@/app/utils';
 import { MPDataType } from '@/api/api';
 
 const CONTAINER_GAP = 'flex gap-[10px]';
@@ -21,16 +22,6 @@ export const MPBox = ({ mpData, ranking }: MPBoxProps) => {
   // 데이터 분리
   const profileData = mpData.base_info;
   const regionData = mpData.constituency[0];
-
-  const percentagePromiseCount = (
-    completedCount: number,
-    totalCount: number
-  ) => {
-    if (!completedCount) {
-      return 0;
-    }
-    return Math.round((completedCount / totalCount) * 100);
-  };
 
   const handleToggleClick = () => {
     setIsOpen(!isOpen);
