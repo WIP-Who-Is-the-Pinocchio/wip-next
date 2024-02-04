@@ -1,25 +1,20 @@
 'use client';
 
 import SEO from '@/app/components/SEO';
-import { useState } from 'react';
 import MPListContainer from '@/app/components/congress/MPListContainer';
 import { DUMMY_DATA, MPDataType } from '@/api/api';
-import Tabs, { Tab } from '@/app/components/list/Tabs';
-import { useRouter } from 'next/navigation';
+import Tabs from '@/app/components/list/Tabs';
 
 interface paramsType {
   param: string;
 }
 
 const RegionPage = ({ params }: { params: paramsType }) => {
-  const router = useRouter();
   const param = decodeURIComponent(params.param).split('_');
-  const [constituency, setConstituency] = useState({
+  const constituency = {
     region: param[0],
     district: param[1],
-  });
-
-  const [selectedTab, setSelectedTab] = useState<Tab>('REGION');
+  };
 
   const sortRegionMPData = (mpData: MPDataType[]) => {
     return mpData.filter((data: MPDataType) => {
@@ -28,8 +23,8 @@ const RegionPage = ({ params }: { params: paramsType }) => {
       }
 
       if (constituency.district) {
-        return data.constituency.some(
-          (obj) => obj.district === constituency.district
+        return data.constituency.some((obj) =>
+          obj.district?.includes(constituency.district)
         );
       }
 
@@ -56,7 +51,7 @@ const RegionPage = ({ params }: { params: paramsType }) => {
             'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px] pt-[24px]'
           }
         >
-          <Tabs selectedTab={selectedTab} />
+          <Tabs selectedTab={'REGION'} />
           <MPListContainer mpData={sortRegionMPData(DUMMY_DATA)} />
         </article>
       </section>
