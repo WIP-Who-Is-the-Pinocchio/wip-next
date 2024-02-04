@@ -17,7 +17,7 @@ export const MPList = ({ mpDataList, isSearch }: MPListProps) => {
   }));
 
   return (
-    <section className="flex w-full flex-col gap-16">
+    <section className="mb-[120px] flex w-full flex-col gap-16">
       {isSearch ? (
         <div className="mb-[120px] flex flex-col gap-6">
           {mpDataList.map((mpData, index) => (
