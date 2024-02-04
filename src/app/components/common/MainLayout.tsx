@@ -6,7 +6,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col items-center pt-[30px]">
+    <section className="flex w-full max-w-[1020px] flex-col items-center pt-[30px]">
       <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
         WIP
       </div>
