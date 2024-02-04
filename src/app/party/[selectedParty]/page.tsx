@@ -1,9 +1,9 @@
 'use client';
-
+import React from 'react';
 import { usePathname } from 'next/navigation';
 import SEO from '@/app/components/SEO';
 
-export const PartyPage = () => {
+const PartyPage = () => {
   const pathname = usePathname();
   const decodedPathname = decodeURIComponent(pathname);
   const party = decodedPathname.split('/')[2];
@@ -17,3 +17,5 @@ export const PartyPage = () => {
     </>
   );
 };
+
+export default PartyPage;
