@@ -14,14 +14,13 @@ export const metadata: Metadata = {
     description: '대한민국 국회의원 공약이행률 순위',
     url: 'https://wip-korea.netlify.app/', // 도메인 변경 후 수정 필요
     siteName: 'WIP',
-    // 오픈그래프용 이미지 추가 필요
-    // images: [
-    //   {
-    //     url: 'https://nextjs.org/og.png',
-    //     width: 800,
-    //     height: 600,
-    //   },
-    // ],
+    images: [
+      {
+        url: 'https://i.ibb.co/QFXpVNQ/wip-meta.png',
+        width: 1200,
+        height: 671,
+      },
+    ],
   },
 };
 
