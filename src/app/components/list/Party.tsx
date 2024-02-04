@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { partyData } from '@/api/partyData';
 
-export const Party = () => {
+const Party = () => {
   const router = useRouter();
 
   const handleRegionClick = (currentParty: string | null) => {
@@ -28,3 +28,5 @@ export const Party = () => {
     </section>
   );
 };
+
+export default Party;
