@@ -1,19 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { twMerge } from 'tailwind-merge';
 
 import Rank from './components/rank/Rank';
-import Tabs, { Tab } from './components/list/Tabs';
-import { Region } from './components/list/Region';
-import Party from './components/list/Party';
+import Tabs from './components/list/Tabs';
 import SEO from './components/SEO';
 import { DUMMY_DATA, MPDataType } from '../api/api';
 import MPListContainer from './components/congress/MPListContainer';
 
 export default function List() {
-  const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
-
   const getLowestPromiseCount = (data: MPDataType[]) => {
     // 비율 계산하여 데이터에 추가
     const dataWithRatio = data.map((item: MPDataType) => {
@@ -53,19 +48,12 @@ export default function List() {
         </article>
         <article
           style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
-          className={twMerge(
-            selectedTab === 'REGION' ? '' : 'px-[20px]',
-            'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px]  pt-[24px]'
-          )}
+          className={
+            'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px]  pt-[24px]'
+          }
         >
-          <Tabs selectedTab={selectedTab} />
-          {selectedTab === 'COUNTRYWIDE' ? (
-            <MPListContainer mpData={DUMMY_DATA} />
-          ) : selectedTab === 'REGION' ? (
-            <Region />
-          ) : (
-            <Party />
-          )}
+          <Tabs selectedTab={'COUNTRYWIDE'} />
+          <MPListContainer mpData={DUMMY_DATA} />
         </article>
       </section>
     </>
