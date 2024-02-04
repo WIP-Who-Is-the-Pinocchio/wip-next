@@ -34,7 +34,7 @@ const PartyPage = () => {
     const dataWithRatio = filteredData.map((item: MPDataType) => {
       const { completed_promise_count, total_promise_count } = item.base_info;
       const ratio = (completed_promise_count / total_promise_count || 0) * 100;
-      const roundedRatio = ratio.toFixed(2);
+      const roundedRatio = parseFloat(ratio.toFixed(2));
       return { ...item, roundedRatio };
     });
 
@@ -52,7 +52,7 @@ const PartyPage = () => {
   };
 
   const selectedPartyData = getSelectedPartyList(DUMMY_DATA, selectedParty);
-  console.log(selectedPartyData);
+
   return (
     <>
       <SEO title={`${selectedParty} 정당별 국회의원 공약이행률 순위`} />
