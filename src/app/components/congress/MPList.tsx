@@ -19,7 +19,7 @@ export const MPList = ({ mpDataList, isSearch }: MPListProps) => {
   return (
     <section className="mb-[120px] flex w-full flex-col gap-16">
       {isSearch ? (
-        <div className="mb-[120px] flex flex-col gap-6">
+        <div className="flex flex-col gap-6">
           {mpDataList.map((mpData, index) => (
             <MPBox
               key={`${mpData.base_info.profile_url}-${index}`}
