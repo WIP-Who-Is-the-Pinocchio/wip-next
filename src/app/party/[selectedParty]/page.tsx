@@ -5,11 +5,7 @@ import SEO from '@/app/components/SEO';
 import { MPBox } from '@/app/components/congress/MPBox';
 import { DUMMY_DATA, MPDataType } from '../../../api/api';
 import Tabs from '@/app/components/list/Tabs';
-
-interface MPBoxProps {
-  mpData: MPDataType;
-  ranking: number;
-}
+import MainLayout from '@/app/components/common/MainLayout';
 
 const PartyPage = () => {
   const pathname = usePathname();
@@ -60,36 +56,20 @@ const PartyPage = () => {
   return (
     <>
       <SEO title={`${selectedParty} 정당별 국회의원 공약이행률 순위`} />
-      <section className="flex flex-col items-center pt-[30px]">
-        <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
-          WIP
-        </div>
-        <article className="mb-[40px] mt-[10px] px-[20px]">
-          <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
-            누가 피노키오인가?
-          </p>
-        </article>
-
-        <article
-          style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
-          className={
-            'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px]  pt-[24px]'
-          }
-        >
-          <Tabs selectedTab={'PARTY'} />
-          <div className="relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]">
-            <div className="mb-[120px] flex flex-col gap-6 px-[20px]">
-              {selectedPartyData.map((mpData) => (
-                <MPBox
-                  key={`${mpData.base_info.name}-${mpData.rank}`}
-                  mpData={mpData}
-                  ranking={mpData.rank}
-                />
-              ))}
-            </div>
+      <MainLayout>
+        <Tabs selectedTab={'PARTY'} />
+        <div className="relative mb-[22px] mt-[4px] w-full border-b-[2px] border-b-[#f1f1f1] py-[12px]">
+          <div className="mb-[120px] flex flex-col gap-6">
+            {selectedPartyData.map((mpData) => (
+              <MPBox
+                key={`${mpData.base_info.name}-${mpData.rank}`}
+                mpData={mpData}
+                ranking={mpData.rank}
+              />
+            ))}
           </div>
-        </article>
-      </section>
+        </div>
+      </MainLayout>
     </>
   );
 };
