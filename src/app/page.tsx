@@ -35,7 +35,11 @@ export default function List() {
   return (
     <>
       <SEO title="국회의원 공약이행률 순위" />
+<<<<<<< HEAD
       <section className=" flex flex-col items-center pt-[14px]">
+=======
+      <section className="flex w-full max-w-[1020px] flex-col items-center pt-[30px]">
+>>>>>>> fca2f21d8d82186b6e23f23d61651ef35ed07a91
         <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
           WIP
         </div>

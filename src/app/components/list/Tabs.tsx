@@ -37,9 +37,6 @@ interface TabsProps {
 export default function Tabs({ selectedTab }: TabsProps) {
   const router = useRouter();
   const handleSelectTab = (tab: Tab) => {
-    if (tab === selectedTab) {
-      return;
-    }
     if (tab === 'COUNTRYWIDE') {
       return router.push(`/`);
     } else if (tab === 'REGION') {
