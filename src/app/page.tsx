@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-
 import Rank from './components/rank/Rank';
 import Tabs from './components/list/Tabs';
 import SEO from './components/SEO';
@@ -35,20 +33,16 @@ export default function List() {
   return (
     <>
       <SEO title="국회의원 공약이행률 순위" />
-<<<<<<< HEAD
-      <section className=" flex flex-col items-center pt-[14px]">
-=======
-      <section className="flex w-full max-w-[1020px] flex-col items-center pt-[30px]">
->>>>>>> fca2f21d8d82186b6e23f23d61651ef35ed07a91
+      <section className="mt-[14px] flex w-full max-w-[1020px] flex-col items-center">
         <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
           WIP
         </div>
-        <article className="mb-[28px]  px-[20px] py-[10px]">
+        <article className=" px-[20px] py-[10px]">
           <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
             누가 피노키오인가
           </p>
         </article>
-        <article className="mb-[40px] px-[30px]">
+        <article className="mb-[30px] mt-[18px] px-[30px]">
           <Rank data={lowestThreePromises} />
         </article>
         <article

@@ -72,7 +72,7 @@ export interface MPDataType {
   };
   constituency: RegionType[];
   committee: CommitteeType[];
-  roundedRatio?: string;
+  roundedRatio?: number;
   originalIndex?: number;
 }
 
