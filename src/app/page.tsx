@@ -37,12 +37,12 @@ export default function List() {
         <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
           WIP
         </div>
-        <article className=" px-[20px] py-[10px]">
+        <article className=" mt-[10px]">
           <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
             누가 피노키오인가
           </p>
         </article>
-        <article className="mb-[30px] mt-[18px] px-[30px]">
+        <article className="mb-[27px] mt-[28px] px-[30px]">
           <Rank data={lowestThreePromises} />
         </article>
         <article
