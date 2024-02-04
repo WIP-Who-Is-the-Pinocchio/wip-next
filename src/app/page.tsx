@@ -13,8 +13,9 @@ export default function List() {
     // 비율 계산하여 데이터에 추가
     const dataWithRatio = data.map((item: MPDataType) => {
       const { completed_promise_count, total_promise_count } = item.base_info;
-      const ratio = (completed_promise_count / total_promise_count || 0) * 100;
-      const roundedRatio = ratio.toFixed(2);
+      const roundedRatio = Math.round(
+        (completed_promise_count / total_promise_count || 0) * 100
+      );
       return { ...item, roundedRatio };
     });
 
@@ -34,13 +35,13 @@ export default function List() {
   return (
     <>
       <SEO title="국회의원 공약이행률 순위" />
-      <section className="flex flex-col items-center pt-[30px]">
+      <section className=" flex flex-col items-center pt-[14px]">
         <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
           WIP
         </div>
-        <article className="mb-[40px] mt-[10px] px-[20px]">
+        <article className="mb-[28px]  px-[20px] py-[10px]">
           <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
-            누가 피노키오인가?
+            누가 피노키오인가
           </p>
         </article>
         <article className="mb-[40px] px-[30px]">

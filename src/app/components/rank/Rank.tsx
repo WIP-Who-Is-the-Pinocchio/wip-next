@@ -16,64 +16,69 @@ export default function Rank(props: RankProps) {
         {'(전국) 공약 이행률 가장 높은 3인'}
       </div>
       <article className="flex items-end gap-[40px]">
-    {props.data[2]&&    <div className={twMerge(twProfile)}>
-          <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
-            {props.data[2].roundedRatio}
-          </span>
-          <picture>
-            <img
-              src={props.data[2].base_info.profile_url}
-              alt="국회의원 프로필사진"
-              className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
-            />
-          </picture>
-          <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
-            {props.data[2].base_info.name}
-          </span>
-          <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C]">
-            {props.data[2].constituency[0].district}
-            {props.data[2].constituency[0].section}
-          </span>
-        </div>}
-{        props.data[0]&&  
-        <div className={twMerge(twProfile)}>
-          <span className="mb-[8px text-[14px] font-semibold text-[#8C8C8C]">
-            {props.data[0].roundedRatio}
-          </span>
-          <picture>
-            <img
-              src={props.data[0].base_info.profile_url}
-              alt="국회의원 프로필사진"
-              className={`h-[104px] w-[104px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
-            />
-          </picture>
-          <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
-            {props.data[0].base_info.name}
-          </span>
-          <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C] ">
-            {props.data[0].constituency[0].district}
-            {props.data[0].constituency[0].section}
-          </span>
-        </div>}
-       {props.data[1]&&   <div className={twMerge(twProfile)}>
-          <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
-            {props.data[1].roundedRatio}
-          </span>
-          <picture>
-            <img
-              src={props.data[1].base_info.profile_url}
-              alt="국회의원 프로필사진"
-              className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
-            />
-          </picture>
-          <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
-            {props.data[1].base_info.name}
-          </span>
-          <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C]">
-            {props.data[1].constituency[0].district}
-            {props.data[1].constituency[0].section}
-          </span>
-        </div>}
+        {props.data[2] && (
+          <div className={twMerge(twProfile)}>
+            <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
+              {props.data[2].roundedRatio}%
+            </span>
+            <picture>
+              <img
+                src={props.data[2].base_info.profile_url}
+                alt="국회의원 프로필사진"
+                className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+              />
+            </picture>
+            <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
+              {props.data[2].base_info.name}
+            </span>
+            <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C]">
+              {props.data[2].constituency[0].district}
+              {props.data[2].constituency[0].section}
+            </span>
+          </div>
+        )}
+        {props.data[0] && (
+          <div className={twMerge(twProfile)}>
+            <span className="mb-[8px text-[14px] font-semibold text-[#8C8C8C]">
+              {props.data[0].roundedRatio}%
+            </span>
+            <picture>
+              <img
+                src={props.data[0].base_info.profile_url}
+                alt="국회의원 프로필사진"
+                className={`h-[104px] w-[104px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+              />
+            </picture>
+            <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
+              {props.data[0].base_info.name}
+            </span>
+            <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C] ">
+              {props.data[0].constituency[0].district}
+              {props.data[0].constituency[0].section}
+            </span>
+          </div>
+        )}
+        {props.data[1] && (
+          <div className={twMerge(twProfile)}>
+            <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
+              {props.data[1].roundedRatio}%
+            </span>
+            <picture>
+              <img
+                src={props.data[1].base_info.profile_url}
+                alt="국회의원 프로필사진"
+                className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+              />
+            </picture>
+            <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
+              {props.data[1].base_info.name}
+            </span>
+            <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C]">
+              {props.data[1].constituency[0].district}
+              {props.data[1].constituency[0].section}
+            </span>
+          </div>
+        )}
       </article>
     </section>
   );
