@@ -8,7 +8,7 @@ import { twMerge } from 'tailwind-merge';
 import Rank from './components/rank/Rank';
 import Tabs, { Tab } from './components/list/Tabs';
 import { Region } from './components/list/Region';
-import { Party } from './components/list/Party';
+import Party from './components/list/Party';
 import SEO from './components/SEO';
 import { MPList } from './components/congress/MPList';
 import { DUMMY_DATA, MPDataType } from '../api/api';
