@@ -13,7 +13,7 @@ export default function Rank(props: RankProps) {
   return (
     <section className="flex flex-col items-center">
       <div className="mb-[26px] font-semibold">
-        {'(전국) 공약 이행률 가장 낮은 3인'}
+        {'(전국) 공약 이행률 가장 높은 3인'}
       </div>
       <article className="flex items-end gap-[40px]">
         <div className={twMerge(twProfile)}>

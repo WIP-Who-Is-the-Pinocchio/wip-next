@@ -13,7 +13,7 @@ const TEXT_STYLE = 'text-sm text-[#BDBDBD]';
 
 interface MPBoxProps {
   mpData: MPDataType;
-  ranking: number;
+  ranking?: number;
 }
 
 export const MPBox = ({ mpData, ranking }: MPBoxProps) => {

@@ -73,6 +73,7 @@ export interface MPDataType {
   constituency: RegionType[];
   committee: CommitteeType[];
   roundedRatio?: string;
+  originalIndex?: number;
 }
 
 export const DUMMY_DATA: MPDataType[] = [

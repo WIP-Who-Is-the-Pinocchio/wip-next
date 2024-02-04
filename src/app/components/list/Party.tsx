@@ -11,8 +11,8 @@ const Party = () => {
   };
 
   return (
-    <section className="flex min-h-[400px] w-full gap-2.5 border-t border-[#F1F1F1] text-[16px] text-[#0E0E0E]">
-      <article className="flex-grow">
+    <section className="mb-[120px] flex w-full flex-col gap-16">
+      <div className="mb-[120px] flex flex-col gap-6">
         {partyData.map((party) => (
           <div
             key={party}
@@ -24,7 +24,7 @@ const Party = () => {
             {party}
           </div>
         ))}
-      </article>
+      </div>
     </section>
   );
 };

@@ -8,7 +8,7 @@ import { twMerge } from 'tailwind-merge';
 import Rank from './components/rank/Rank';
 import Tabs, { Tab } from './components/list/Tabs';
 import { Region } from './components/list/Region';
-import { Party } from './components/list/Party';
+import Party from './components/list/Party';
 import SEO from './components/SEO';
 import { MPList } from './components/congress/MPList';
 import { DUMMY_DATA, MPDataType } from '../api/api';
@@ -66,7 +66,7 @@ export default function List() {
 
     // 비율을 기준으로 데이터 정렬
     const sortedData = dataWithRatio.sort(
-      (a: any, b: any) => a.roundedRatio - b.roundedRatio
+      (a: any, b: any) => b.roundedRatio - a.roundedRatio
     );
 
     // 가장 낮은 3명의 데이터 선택
