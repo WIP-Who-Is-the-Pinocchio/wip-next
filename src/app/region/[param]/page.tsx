@@ -1,19 +1,24 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import SEO from '@/app/components/SEO';
+import { useState } from 'react';
 
-const RegionPage = () => {
-  const pathname = usePathname();
-  const decodedPathname = decodeURIComponent(pathname);
-  console.log(decodedPathname.split('/')[2]);
-  const region = decodedPathname.split('/')[2];
+interface paramsType {
+param: string;
+}
+
+const RegionPage = ({params}:{params: paramsType} ) => {
+  const param = decodeURIComponent(params.param).split('_');
+  const [constituency, setConstituency] = useState({
+    region: param[0],
+    district: param[1],
+  });
 
   return (
     <>
-      <SEO title={`${region} 지역 국회의원 공약이행률 순위`} />
+      <SEO title={`${constituency.region} 지역 국회의원 공약이행률 순위`} />
       <div>
-        <h2>Region: {region}</h2>
+        <h2>Region: {constituency.region}, District: {constituency.district}</h2>
       </div>
     </>
   );

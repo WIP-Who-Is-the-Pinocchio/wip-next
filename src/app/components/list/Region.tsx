@@ -21,11 +21,12 @@ export const Region = () => {
   };
 
   const handleRegionClick = (currentRegion: string | null) => {
+    console.log(currentRegion)
     if (currentRegion && currentRegion.includes('전체')) {
-      return router.push(`/region/${currentRegion.split(' ')[0]}`);
+      return router.push(`/region/${currentCircuit}`);
     }
 
-    return router.push(`/region/${currentRegion}`);
+    return router.push(`/region/${currentCircuit}_${currentRegion}`);
   };
 
   return (
