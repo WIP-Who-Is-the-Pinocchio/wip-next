@@ -16,7 +16,7 @@ export default function Rank(props: RankProps) {
         {'(전국) 공약 이행률 가장 높은 3인'}
       </div>
       <article className="flex items-end gap-[40px]">
-        <div className={twMerge(twProfile)}>
+    {props.data[2]&&    <div className={twMerge(twProfile)}>
           <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
             {props.data[2].roundedRatio}
           </span>
@@ -34,7 +34,8 @@ export default function Rank(props: RankProps) {
             {props.data[2].constituency[0].district}
             {props.data[2].constituency[0].section}
           </span>
-        </div>
+        </div>}
+{        props.data[0]&&  
         <div className={twMerge(twProfile)}>
           <span className="mb-[8px text-[14px] font-semibold text-[#8C8C8C]">
             {props.data[0].roundedRatio}
@@ -53,8 +54,8 @@ export default function Rank(props: RankProps) {
             {props.data[0].constituency[0].district}
             {props.data[0].constituency[0].section}
           </span>
-        </div>
-        <div className={twMerge(twProfile)}>
+        </div>}
+       {props.data[1]&&   <div className={twMerge(twProfile)}>
           <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
             {props.data[1].roundedRatio}
           </span>
@@ -72,7 +73,7 @@ export default function Rank(props: RankProps) {
             {props.data[1].constituency[0].district}
             {props.data[1].constituency[0].section}
           </span>
-        </div>
+        </div>}
       </article>
     </section>
   );
