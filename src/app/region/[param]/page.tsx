@@ -1,7 +1,7 @@
 'use client';
 
 import SEO from '@/app/components/SEO';
-import MPListContainer from '@/app/components/congress/MPListContainer';
+import { MPList } from '@/app/components/congress/MPList';
 import { DUMMY_DATA, MPDataType } from '@/api/api';
 import Tabs from '@/app/components/list/Tabs';
 import MainLayout from '@/app/components/common/MainLayout';
@@ -24,8 +24,8 @@ const RegionPage = ({ params }: { params: paramsType }) => {
       }
 
       if (constituency.district) {
-        return data.constituency.some((obj) =>
-          obj.district?.includes(constituency.district)
+        return data.constituency.some(
+          (obj) => obj.district?.includes(constituency.district)
         );
       }
 
@@ -38,7 +38,7 @@ const RegionPage = ({ params }: { params: paramsType }) => {
       <SEO title={`${constituency.region} 지역 국회의원 공약이행률 순위`} />
       <MainLayout>
         <Tabs selectedTab={'REGION'} />
-        <MPListContainer mpData={sortRegionMPData(DUMMY_DATA)} />
+        <MPList mpDataList={sortRegionMPData(DUMMY_DATA)} isSearch={true} />
       </MainLayout>
     </>
   );
