@@ -1,6 +1,7 @@
 'use client';
 
 import { twMerge } from 'tailwind-merge';
+import { useRouter } from 'next/navigation';
 
 const twTab =
   'py-[8px] px-[24px] rounded-[36px] text-[16px] not-italic leading-[100%]';
@@ -27,13 +28,27 @@ const getTabText = (tab: Tab) => {
   }
 };
 
+const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
+
 interface TabsProps {
-  tabs: Tab[];
   selectedTab: Tab;
-  onSelectTab: (tab: Tab) => () => void;
 }
 
-export default function Tabs({ tabs, selectedTab, onSelectTab }: TabsProps) {
+export default function Tabs({ selectedTab }: TabsProps) {
+  const router = useRouter();
+  const handleSelectTab = (tab: Tab) => {
+    if (tab === selectedTab) {
+      return;
+    }
+    if (tab === 'COUNTRYWIDE') {
+      return router.push(`/`);
+    } else if (tab === 'REGION') {
+      return router.push('/region');
+    } else if (tab === 'PARTY') {
+      return router.push('/party');
+    }
+  };
+
   return (
     <div
       style={{ boxShadow: '0px 0px 4px 0px #C084FC7A inset' }}
@@ -46,7 +61,7 @@ export default function Tabs({ tabs, selectedTab, onSelectTab }: TabsProps) {
             twTab,
             selectedTab === tab ? twSelectedTab : twUnselectedTab
           )}
-          onClick={onSelectTab(tab)}
+          onClick={() => handleSelectTab(tab)}
         >
           {getTabText(tab)}
         </div>

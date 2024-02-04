@@ -11,14 +11,8 @@ import SEO from './components/SEO';
 import { DUMMY_DATA, MPDataType } from '../api/api';
 import MPListContainer from './components/congress/MPListContainer';
 
-const tabs: Tab[] = ['COUNTRYWIDE', 'REGION', 'PARTY'];
-
 export default function List() {
   const [selectedTab, setSelectedTab] = useState<Tab>('COUNTRYWIDE');
-
-  const handleSelectTab = (tab: Tab) => () => {
-    setSelectedTab(tab);
-  };
 
   const getLowestPromiseCount = (data: MPDataType[]) => {
     // 비율 계산하여 데이터에 추가
@@ -64,13 +58,9 @@ export default function List() {
             'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px]  pt-[24px]'
           )}
         >
-          <Tabs
-            tabs={tabs}
-            selectedTab={selectedTab}
-            onSelectTab={handleSelectTab}
-          />
+          <Tabs selectedTab={selectedTab} />
           {selectedTab === 'COUNTRYWIDE' ? (
-           <MPListContainer mpData={DUMMY_DATA} />
+            <MPListContainer mpData={DUMMY_DATA} />
           ) : selectedTab === 'REGION' ? (
             <Region />
           ) : (
