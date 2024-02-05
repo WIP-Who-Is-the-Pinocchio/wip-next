@@ -16,10 +16,11 @@ export default function MainLayout({
         </p>
       </article>
       <article
-        style={{ boxShadow: '0px 0px 16px 0px #E6E6E6' }}
-        className={
-          'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px] pt-[24px]'
-        }
+        style={{
+          boxShadow: '0px 0px 16px 0px #E6E6E6',
+          minHeight: 'calc(100vh - 138px)',
+        }}
+        className="mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px] pt-[24px]"
       >
         {children}
       </article>
