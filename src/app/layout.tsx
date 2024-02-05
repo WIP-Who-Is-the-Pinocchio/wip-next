@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'WIP',
     description: '대한민국 국회의원 공약이행률 순위',
-    url: 'https://wip-korea.netlify.app/', // 도메인 변경 후 수정 필요
+    url: 'https://k-pinocchio.co.kr/',
     siteName: 'WIP',
     images: [
       {

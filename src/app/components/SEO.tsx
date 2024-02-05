@@ -31,7 +31,7 @@ const SEO: React.FC<SEOPropsType> = ({ title }) => {
         content="https://i.ibb.co/QFXpVNQ/wip-meta.png"
       />
       {/* 웹 페이지 URL  */}
-      <meta property="og:url" content="https://wip-korea.netlify.app/" />
+      <meta property="og:url" content="https://k-pinocchio.co.kr/" />
     </Head>
   );
 };
