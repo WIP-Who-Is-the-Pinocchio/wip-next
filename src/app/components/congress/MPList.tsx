@@ -6,10 +6,10 @@ import { MPDataType } from '@/api/api';
 
 interface MPListProps {
   mpDataList: MPDataType[];
-  isSearch: boolean;
+  needSectionTitle: boolean;
 }
 
-export const MPList = ({ mpDataList, isSearch }: MPListProps) => {
+export const MPList = ({ mpDataList, needSectionTitle }: MPListProps) => {
   // originalIndex 추가 배열
   const addIndexList = mpDataList.map((data, index) => ({
     ...data,
@@ -18,7 +18,7 @@ export const MPList = ({ mpDataList, isSearch }: MPListProps) => {
 
   return (
     <section className="mb-[120px] flex w-full flex-col gap-16">
-      {isSearch ? (
+      {needSectionTitle ? (
         <div className="flex flex-col gap-6">
           {mpDataList.map((mpData, index) => (
             <MPBox
