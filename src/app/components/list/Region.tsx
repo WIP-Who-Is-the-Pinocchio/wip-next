@@ -21,7 +21,6 @@ export const Region = () => {
   };
 
   const handleRegionClick = (currentRegion: string | null) => {
-    console.log(currentRegion)
     if (currentRegion && currentRegion.includes('전체')) {
       return router.push(`/region/${currentCircuit}`);
     }
@@ -31,7 +30,7 @@ export const Region = () => {
 
   return (
     <section className="flex w-full gap-2.5 border-t border-[#F1F1F1] text-[16px] text-[#0E0E0E]">
-      <article className="w-auto flex-shrink-0">
+      <article className="w-auto flex-shrink-0 cursor-pointer">
         {circuitData.map((circuit) => (
           <div
             className={twMerge(
@@ -45,7 +44,7 @@ export const Region = () => {
           </div>
         ))}
       </article>
-      <article className="flex-grow">
+      <article className="flex-grow cursor-pointer">
         {[
           `${currentCircuit} 전체`,
           ...getRegionArray(regionData, currentCircuit),

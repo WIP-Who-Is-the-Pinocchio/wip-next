@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { useRouter } from 'next/navigation';
 
 const twTab =
-  'py-[8px] px-[24px] rounded-[36px] text-[16px] not-italic leading-[100%]';
+  'py-[8px] px-[24px] rounded-[36px] text-[16px] not-italic leading-[100%] cursor-pointer';
 const twSelectedTab = 'text-[#9333EA] font-semibold bg-white border-black';
 const twUnselectedTab = 'text-[#C084FC] font-medium';
 
