@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   icons: {
     icon: '/wipLogo.svg',
   },
+  verification: {
+    google: 'EWUknIFTpEBvR0cghd3GS3WXt7UXtOAcAqRDlg3lcoo',
+    other: {
+      'naver-site-verification': 'EWUknIFTpEBvR0cghd3GS3WXt7UXtOAcAqRDlg3lcoo',
+    },
+  },
   openGraph: {
     title: 'WIP',
     description: '대한민국 국회의원 공약이행률 순위',

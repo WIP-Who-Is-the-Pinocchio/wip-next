@@ -32,14 +32,6 @@ const SEO: React.FC<SEOPropsType> = ({ title }) => {
       />
       {/* 웹 페이지 URL  */}
       <meta property="og:url" content="https://k-pinocchio.co.kr/" />
-      <meta
-        name="naver-site-verification"
-        content="ab6e827fd84c58e3211c89283fc7c637ac38f118"
-      />
-      <meta
-        name="google-site-verification"
-        content="EWUknIFTpEBvR0cghd3GS3WXt7UXtOAcAqRDlg3lcoo"
-      />
     </Head>
   );
 };
