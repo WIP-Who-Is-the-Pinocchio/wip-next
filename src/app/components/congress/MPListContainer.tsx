@@ -73,7 +73,7 @@ export default function MPListContainer({ mpData }: MPListContainerPropsType) {
           onClick={handleSearch}
         />
       </div>
-      <MPList mpDataList={sortData} needSectionTitle={isSearch} />
+      <MPList mpDataList={sortData} removeSectionTitle={isSearch} />
     </>
   );
 }

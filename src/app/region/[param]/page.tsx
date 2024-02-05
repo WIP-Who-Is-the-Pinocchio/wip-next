@@ -48,7 +48,7 @@ const RegionPage = ({ params }: { params: paramsType }) => {
       <SEO title={`${constituency.region} 지역 국회의원 공약이행률 순위`} />
       <MainLayout>
         <Tabs selectedTab={'REGION'} />
-        <MPList mpDataList={sortRegionMPData} needSectionTitle={true} />
+        <MPList mpDataList={sortRegionMPData} removeSectionTitle={true} />
       </MainLayout>
     </>
   );
