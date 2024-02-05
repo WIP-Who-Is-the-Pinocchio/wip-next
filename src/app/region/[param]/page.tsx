@@ -17,31 +17,38 @@ const RegionPage = ({ params }: { params: paramsType }) => {
     district: param[1],
   };
 
-  const sortRegionMPData = (mpData: MPDataType[]) => {
-    return mpData.filter((data: MPDataType) => {
-      if (data.constituency[0].region !== constituency.region) {
-        return false;
-      }
+  const filterRegionMPData = DUMMY_DATA.filter((data: MPDataType) => {
+    if (data.constituency[0].region !== constituency.region) {
+      return false;
+    }
 
-      if (constituency.district) {
-        return data.constituency.some(
-          (obj) => obj.district?.includes(constituency.district)
-        );
-      }
+    if (constituency.district) {
+      return data.constituency.some(
+        (obj) => obj.district?.includes(constituency.district)
+      );
+    }
 
-      return true;
-    });
-  };
+    return true;
+  });
+
+  const sortRegionMPData = filterRegionMPData.sort((a, b) => {
+    const ratioA =
+      a.base_info.total_promise_count > 0
+        ? a.base_info.completed_promise_count / a.base_info.total_promise_count
+        : 0;
+    const ratioB =
+      b.base_info.total_promise_count > 0
+        ? b.base_info.completed_promise_count / b.base_info.total_promise_count
+        : 0;
+    return ratioB - ratioA; // 내림차순 정렬
+  });
 
   return (
     <>
       <SEO title={`${constituency.region} 지역 국회의원 공약이행률 순위`} />
       <MainLayout>
         <Tabs selectedTab={'REGION'} />
-        <MPList
-          mpDataList={sortRegionMPData(DUMMY_DATA)}
-          needSectionTitle={true}
-        />
+        <MPList mpDataList={sortRegionMPData} needSectionTitle={true} />
       </MainLayout>
     </>
   );
