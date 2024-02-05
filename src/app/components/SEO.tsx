@@ -23,7 +23,7 @@ const SEO: React.FC<SEOPropsType> = ({ title }) => {
       {/* 콘텐츠 설명  */}
       <meta
         property="og:description"
-        content="풋살장 찾기, 풋살 팀 모집, 풋살 이야기 등 풋살의 모든 것을 즐길 수 있는 곳. 내 주변 풋살 커뮤니티를 싸커퀵에서 직접 만들어보세요."
+        content="22대 총선이 얼마 남지 않았습니다! 대한민국 국회의원 공약이행률 순위를 확인해보세요. 21대 국회의원 공약이행률 정보를 제공합니다."
       />
       {/* 미리보기 이미지  */}
       <meta
@@ -31,7 +31,7 @@ const SEO: React.FC<SEOPropsType> = ({ title }) => {
         content="https://i.ibb.co/QFXpVNQ/wip-meta.png"
       />
       {/* 웹 페이지 URL  */}
-      {/* <meta property="og:url" content="http://준비중/" /> */}
+      <meta property="og:url" content="https://wip-korea.netlify.app/" />
     </Head>
   );
 };
