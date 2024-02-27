@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Head from 'next/head';
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -38,12 +37,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="_XvjMrZ8YecRaEydlePwRJE_fWBtRafTZZKh0OnXtok"
-        />
-      </Head>
       <body className="flex justify-center">{children}</body>
     </html>
   );
