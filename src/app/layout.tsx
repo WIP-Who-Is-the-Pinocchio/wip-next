@@ -4,7 +4,7 @@ import './globals.css';
 // const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'WIP',
+  title: 'WIP-누가 피노키오인가',
   description: '대한민국 국회의원 공약이행률 순위',
   icons: {
     icon: '/wipLogo.svg',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'WIP',
+    title: 'WIP-누가 피노키오인가',
     description: '대한민국 국회의원 공약이행률 순위',
     url: 'https://k-pinocchio.co.kr/',
     siteName: 'WIP',
