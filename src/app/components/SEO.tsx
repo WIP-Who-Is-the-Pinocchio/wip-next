@@ -7,28 +7,31 @@ interface SEOPropsType {
 const SEO: React.FC<SEOPropsType> = ({ title }) => {
   return (
     <Head>
-      <title>WIP | {title}</title>
+      <title>K피노키오 - 누가 공약을 지키지 않는가 | {title}</title>
       <meta
         name="description"
-        content="22대 총선이 얼마 남지 않았습니다! 대한민국 국회의원 공약이행률 순위를 확인해보세요. 21대 국회의원 공약이행률 정보를 제공합니다."
+        content="제22대 총선에 재출마하는 21대 국회의원들의 공약 이행률 순위와 결과"
       />
       <meta
         name="keyword"
-        content="국회의원,공약이행률,21대,22대,선거,총선,후보"
+        content=" k피노키오, 공약, 총선, 선거, 22대, 21대, 순위, 국회의원"
       />
       {/* 웹페이지,콘텐츠 타입  */}
       <meta property="og:type" content="website" />
       {/* 콘텐츠 제목  */}
-      <meta property="og:title" content="WIP - 국회의원 공약이행률 순위" />
+      <meta
+        property="og:title"
+        content="K피노키오 - 누가 공약을 지키지 않는가"
+      />
       {/* 콘텐츠 설명  */}
       <meta
         property="og:description"
-        content="22대 총선이 얼마 남지 않았습니다! 대한민국 국회의원 공약이행률 순위를 확인해보세요. 21대 국회의원 공약이행률 정보를 제공합니다."
+        content="제22대 총선에 재출마하는 21대 국회의원들의 공약 이행률 순위와 결과"
       />
       {/* 미리보기 이미지  */}
       <meta
         property="og:image"
-        content="https://i.ibb.co/QFXpVNQ/wip-meta.png"
+        content="https://i.ibb.co/1GGJkC1/wip-logo.png"
       />
       {/* 웹 페이지 URL  */}
       <meta property="og:url" content="https://k-pinocchio.co.kr/" />
