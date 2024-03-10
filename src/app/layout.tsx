@@ -4,8 +4,19 @@ import './globals.css';
 // const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'WIP-누가 피노키오인가',
-  description: '대한민국 국회의원 공약이행률 순위',
+  title: ' K피노키오 - 누가 공약을 지키지 않는가',
+  description:
+    '제22대 총선에 재출마하는 21대 국회의원들의 공약 이행률 순위와 결과',
+  keywords: [
+    'k피노키오',
+    '공약',
+    '총선',
+    '선거',
+    '22대',
+    '21대',
+    '순위',
+    '국회의원',
+  ],
   icons: {
     icon: '/wipLogo.svg',
   },
@@ -16,13 +27,14 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'WIP-누가 피노키오인가',
-    description: '대한민국 국회의원 공약이행률 순위',
+    title: 'K피노키오 - 누가 공약을 지키지 않는가',
+    description:
+      '제22대 총선에 재출마하는 21대 국회의원들의 공약 이행률 순위와 결과',
     url: 'https://k-pinocchio.co.kr/',
     siteName: 'WIP',
     images: [
       {
-        url: 'https://i.ibb.co/QFXpVNQ/wip-meta.png',
+        url: 'https://i.ibb.co/1GGJkC1/wip-logo.png',
         width: 1200,
         height: 671,
       },
