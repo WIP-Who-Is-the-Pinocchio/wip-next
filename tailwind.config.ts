@@ -17,6 +17,11 @@ const config: Config = {
         primary: '#0E97FF',
         'primary-border': '#E9D5FF',
         'primary-text': '#9333EA',
+        gray: '#F8F8F8',
+        deepGray: '#848484',
+      },
+      boxShadow: {
+        box: '0px 0px 4px 0px #E8E8E8',
       },
     },
   },
