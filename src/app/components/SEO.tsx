@@ -29,10 +29,7 @@ const SEO: React.FC<SEOPropsType> = ({ title }) => {
         content="제22대 총선에 재출마하는 21대 국회의원들의 공약 이행률 순위와 결과"
       />
       {/* 미리보기 이미지  */}
-      <meta
-        property="og:image"
-        content="https://i.ibb.co/1GGJkC1/wip-logo.png"
-      />
+      <meta property="og:image" content="https://i.ibb.co/ys3YdhX/WIP.png" />
       {/* 웹 페이지 URL  */}
       <meta property="og:url" content="https://k-pinocchio.co.kr/" />
     </Head>

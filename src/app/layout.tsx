@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'WIP',
     images: [
       {
-        url: 'https://i.ibb.co/QFXpVNQ/wip-meta.png',
+        url: 'https://i.ibb.co/ys3YdhX/WIP.png',
         width: 1200,
         height: 671,
       },
