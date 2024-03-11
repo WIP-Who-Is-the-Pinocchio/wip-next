@@ -1,7 +1,7 @@
 'use client';
 
 import { Table } from '../congress/Table';
-import useTableData from '@/app/hooks/useTableData';
+import useTableData from '@/hooks/useTableData';
 import { MPDataType } from '@/api/api';
 
 interface TableProps {

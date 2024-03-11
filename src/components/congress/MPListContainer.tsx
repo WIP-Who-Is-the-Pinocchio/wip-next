@@ -66,7 +66,7 @@ export default function MPListContainer({ mpData }: MPListContainerPropsType) {
         />
         <Image
           className="absolute right-0 top-[12px] hover:cursor-pointer"
-          src="/search_icon.svg"
+          src="/icons/searchIcon.svg"
           width={18}
           height={18}
           alt="검색 버튼 아이콘"

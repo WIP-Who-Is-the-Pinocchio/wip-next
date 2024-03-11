@@ -1,6 +1,6 @@
 'use client';
 
-import { percentagePromiseCount } from '@/app/utils';
+import { percentagePromiseCount } from '@/utils';
 import { MPBox } from './MPBox';
 import { MPDataType } from '@/api/api';
 

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
 import { MPBoxDetail } from '../congress/MPBoxDetail';
-import { percentagePromiseCount } from '@/app/utils';
+import { percentagePromiseCount } from '@/utils';
 import { MPDataType } from '@/api/api';
 
 const CONTAINER_GAP = 'flex gap-[10px]';
