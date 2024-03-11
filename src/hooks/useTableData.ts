@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { TableRowData } from '../components/congress/Table';
+import { TableRowData } from '../app/components/congress/Table';
 import { MPDataType } from '@/api/api';
 
 const useTableData = (mpData: MPDataType) => {
