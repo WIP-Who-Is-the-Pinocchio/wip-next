@@ -1,10 +1,11 @@
 'use client';
 
-import Rank from './components/rank/Rank';
-import Tabs from './components/list/Tabs';
-import SEO from './components/SEO';
+import Rank from '@/components/rank/Rank';
+import Tabs from '@/components/list/Tabs';
+import SEO from '@/components/SEO';
 import { DUMMY_DATA, MPDataType } from '../api/api';
-import MPListContainer from './components/congress/MPListContainer';
+import MPListContainer from '@/components/congress/MPListContainer';
+import { Header } from '@/components/shared';
 
 export default function List() {
   const getLowestPromiseCount = (data: MPDataType[]) => {
@@ -34,14 +35,7 @@ export default function List() {
     <>
       <SEO title="국회의원 공약이행률 순위" />
       <section className="mt-[14px] flex w-full max-w-[1020px] flex-col items-center">
-        <div className="px-[20px] text-[16px] font-bold leading-[150%] text-black">
-          WIP
-        </div>
-        <article className=" mt-[10px]">
-          <p className="text-[14px] font-normal not-italic leading-[150%] text-black">
-            누가 피노키오인가
-          </p>
-        </article>
+        <Header />
         <article className="mb-[27px] mt-[28px] px-[30px]">
           <Rank data={lowestThreePromises} />
         </article>

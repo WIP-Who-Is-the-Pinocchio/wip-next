@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import SEO from '@/app/components/SEO';
-import { MPBox } from '@/app/components/congress/MPBox';
+import SEO from '@/components/SEO';
+import { MPBox } from '@/components/congress/MPBox';
 import { DUMMY_DATA, MPDataType } from '../../../api/api';
-import Tabs from '@/app/components/list/Tabs';
-import MainLayout from '@/app/components/common/MainLayout';
+import Tabs from '@/components/list/Tabs';
+import MainLayout from '@/components/common/MainLayout';
 
 const PartyPage = () => {
   const pathname = usePathname();

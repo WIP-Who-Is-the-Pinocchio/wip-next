@@ -1,10 +1,10 @@
 'use client';
 
-import SEO from '@/app/components/SEO';
-import { MPList } from '@/app/components/congress/MPList';
+import SEO from '@/components/SEO';
+import { MPList } from '@/components/congress/MPList';
 import { DUMMY_DATA, MPDataType } from '@/api/api';
-import Tabs from '@/app/components/list/Tabs';
-import MainLayout from '@/app/components/common/MainLayout';
+import Tabs from '@/components/list/Tabs';
+import MainLayout from '@/components/common/MainLayout';
 
 interface paramsType {
   param: string;
