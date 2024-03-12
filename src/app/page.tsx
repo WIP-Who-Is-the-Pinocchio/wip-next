@@ -34,7 +34,7 @@ export default function List() {
   return (
     <>
       <SEO title="국회의원 공약이행률 순위" />
-      <section className="mt-[14px] flex w-full max-w-[1020px] flex-col items-center">
+      <section className="flex w-full max-w-[1020px] flex-col items-center">
         <Header />
         <article className="mb-[27px] mt-[28px] px-[30px]">
           <Rank data={lowestThreePromises} />
@@ -45,7 +45,7 @@ export default function List() {
             minHeight: 'calc(100vh - 364px)',
           }}
           className={
-            'mt-[11px] flex w-full flex-col items-center gap-[20px] rounded-t-[36px] px-[20px]  pt-[24px]'
+            'mt-[11px] flex w-full flex-col items-center gap-[22px] rounded-t-[36px] px-[20px]  pt-[24px]'
           }
         >
           <Tabs selectedTab={'COUNTRYWIDE'} />
