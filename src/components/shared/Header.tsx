@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export const Header = ({ needDescription = true }: HeaderProps) => {
   return (
-    <section className={cn(CONTAINER_STYLE, 'gap-3')}>
+    <section className={cn(CONTAINER_STYLE, 'gap-3 p-5')}>
       <Image
         src="/icons/headerLogo.svg"
         width={72}
@@ -19,8 +19,8 @@ export const Header = ({ needDescription = true }: HeaderProps) => {
       {needDescription && (
         <>
           <div className="relative">
-            <div className="shadow-box flex w-[226px] flex-col items-start gap-[10px] rounded-[4px] bg-white p-[10px]">
-              <span className="font-bold leading-5">
+            <div className="flex w-[226px] flex-col items-start gap-[10px] rounded-[4px] bg-white p-[10px] text-[14px] shadow-box">
+              <span className="break-keep font-bold leading-5">
                 제22대 총선에 재출마하는 21대 국회의원의 공약 이행률 순위와 결과
               </span>
               <span className="text-[12px]">출처: 한국매니페스토실천본부</span>
@@ -29,7 +29,7 @@ export const Header = ({ needDescription = true }: HeaderProps) => {
           <div
             className={cn(
               CONTAINER_STYLE,
-              'text-deepGray gap-[6px] text-[12px]'
+              'gap-[6px] text-[12px] text-deepGray'
             )}
           >
             <span>최종 업데이트 일자: 2024.03.03</span>
