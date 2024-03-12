@@ -23,6 +23,9 @@ const config: Config = {
       boxShadow: {
         box: '0px 0px 4px 0px #E8E8E8',
       },
+      borderRadius: {
+        basic: '12px',
+      },
     },
   },
   plugins: [],
