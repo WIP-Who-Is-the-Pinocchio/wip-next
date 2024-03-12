@@ -39,7 +39,7 @@ const AccordionButton = (
   return (
     <button
       className={cn(
-        'flex w-full justify-between border-none px-4 py-3.5',
+        'flex w-full items-center justify-between border-none px-4 py-3',
         className
       )}
       {...buttonProps}
