@@ -16,9 +16,9 @@ export const MPList = ({ mpDataList }: MPListProps) => {
   }));
 
   return (
-    <section className="mb-[120px] flex w-full flex-col gap-16">
-      <article className="flx flex-col">
-        <div className="mb-8 text-[18px] font-semibold">
+    <section className="mb-[120px] flex w-full flex-col gap-[44px]">
+      <article className="flex flex-col">
+        <div className="pb-[10px] text-[20px] font-bold">
           공약 이행률 80% 이상
         </div>
         <div className="flex flex-col">
@@ -39,8 +39,8 @@ export const MPList = ({ mpDataList }: MPListProps) => {
             ))}
         </div>
       </article>
-      <article className="flx flex-col gap-8">
-        <div className="mb-8 text-[18px] font-semibold">
+      <article className="flx flex-col">
+        <div className="pb-[10px] text-[20px] font-bold">
           공약 이행률 60%이상 80%미만
         </div>
         <div className="flex flex-col">
@@ -65,8 +65,8 @@ export const MPList = ({ mpDataList }: MPListProps) => {
             ))}
         </div>
       </article>
-      <article className="flx flex-col gap-8">
-        <div className="mb-8 text-[18px] font-semibold">
+      <article className="flx flex-col]">
+        <div className="pb-[10px] text-[20px] font-bold">
           공약 이행률 30%이상 60%미만
         </div>
         <div className="flex flex-col">
@@ -91,8 +91,8 @@ export const MPList = ({ mpDataList }: MPListProps) => {
             ))}
         </div>
       </article>
-      <article className="flx flex-col gap-8">
-        <div className="mb-8 text-[18px] font-semibold">
+      <article className="flx flex-col">
+        <div className="pb-[10px] text-[20px] font-bold">
           공약 이행률 30%미만 💢
         </div>
         <div className="flex flex-col">
