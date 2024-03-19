@@ -45,7 +45,7 @@ export default function List() {
             minHeight: 'calc(100vh - 364px)',
           }}
           className={
-            'mt-[11px] flex w-full flex-col items-center gap-[22px] rounded-t-[36px] px-[20px]  pt-[24px]'
+            'mt-[11px] flex w-full flex-col items-center gap-[22px] rounded-t-[36px] bg-white px-[20px] pt-[24px]'
           }
         >
           <Tabs selectedTab={'COUNTRYWIDE'} />
