@@ -23,7 +23,7 @@ const PartyPage = () => {
         return (
           political_party !== '국민의힘' &&
           political_party !== '더불어민주당' &&
-          political_party !== '정의당'
+          political_party !== '녹색정의당'
         );
       } else {
         return political_party === party;

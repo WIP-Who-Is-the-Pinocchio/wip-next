@@ -5730,7 +5730,7 @@ export const DUMMY_DATA: MPDataType[] = [
       assembly_term: 21,
       profile_url:
         'https://www.assembly.go.kr/static/portal/img/openassm/SU53086M.jpg',
-      political_party: '정의당',
+      political_party: '녹색정의당',
       elected_count: 4,
       total_promise_count: 39,
       completed_promise_count: 10,
