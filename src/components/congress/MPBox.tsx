@@ -39,25 +39,35 @@ export const MPBox = ({ mpData, ranking }: MPBoxProps) => {
                 />
               }
               className={cn(
-                'text-[14px], relative self-center',
+                'relative self-center text-[14px]',
                 ranking % 2 === 0 ? 'bg-[#FCFCFC]' : 'bg-[#F6F6F6]'
               )}
             >
               <article className="flex w-full items-center">
-                <span className="w-[24px] text-start">{ranking + 1}</span>
+                <span className="min-w-[24px] pr-1 text-start">
+                  {ranking + 1}
+                </span>
                 <div className="flex items-center gap-2.5">
-                  <picture>
+                  <picture className="relative">
                     <img
                       src={profileData.profile_url}
                       alt="국회의원 프로필사진"
+                      style={{
+                        border: `2px solid ${
+                          PARTY_DATA[profileData.political_party].border
+                        }`,
+                      }}
                       className={cn(
-                        'h-[32px] w-[32px] rounded-full border object-cover object-top',
-                        PARTY_DATA[profileData.political_party].border
+                        'h-[32px] w-[32px] rounded-full border object-cover object-top'
                       )}
                     />
                   </picture>
-                  <span className="font-bold">{profileData.name}</span>
-                  <span className="max-w-20">{summaryRegion(regionData)}</span>
+                  <span className="min-w-[39px] text-start font-bold">
+                    {profileData.name}
+                  </span>
+                  <span className="block w-[98px] overflow-hidden text-ellipsis text-ellipsis whitespace-nowrap text-start">
+                    {summaryRegion(regionData)}
+                  </span>
                   {profileData.political_party === '무소속' ? (
                     <span>무소속</span>
                   ) : (
@@ -96,9 +106,6 @@ function summaryRegion(regionData: {
   const fullRegion = `${regionData.region} ${
     regionData.district ? regionData.district : ''
   }${regionData.section ? regionData.section : ''}`;
-  if (fullRegion.length > 6) {
-    return `${fullRegion.slice(0, 6)}···`;
-  }
 
   return fullRegion;
 }
