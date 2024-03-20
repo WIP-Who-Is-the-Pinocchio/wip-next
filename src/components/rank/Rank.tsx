@@ -1,82 +1,65 @@
 'use client';
 
-import { twMerge } from 'tailwind-merge';
-import { MPDataType } from '../../../api/api';
+import { MPDataType } from '@/api/api';
+import { cn } from '@/utils';
 
 interface RankProps {
   data: MPDataType[];
 }
 
-const twProfile = 'flex flex-col items-center';
+const twProfile = 'flex flex-col items-center min-w-[80px]';
+const NAME =
+  'mb-[6px] mt-[8px] text-[16px] text-black font-normal leading-[100%]';
+const FULFILLMENT = 'text-[14px] text-black font-normal';
 
 export default function Rank(props: RankProps) {
   return (
-    <section className="flex flex-col items-center">
-      <div className="mb-[26px] font-semibold">
-        {'(전국) 공약 이행률 가장 높은 3인'}
+    <section className="flex w-full flex-col items-center">
+      <div className="mb-[26px] text-[14px] font-bold">
+        {'전국 공약 이행률 가장 높은 3인'}
       </div>
-      <article className="flex items-end gap-[40px]">
+      <article className="flex w-full items-end justify-center gap-2 rounded-[4px] bg-[#EFEFEF] p-3">
         {props.data[2] && (
-          <div className={twMerge(twProfile)}>
-            <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
-              {props.data[2].roundedRatio}%
-            </span>
+          <div className={cn(twProfile)}>
             <picture>
               <img
                 src={props.data[2].base_info.profile_url}
                 alt="국회의원 프로필사진"
-                className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+                className={`h-[60px] w-[60px] rounded-full object-cover object-top `}
               />
             </picture>
-            <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
-              {props.data[2].base_info.name}
-            </span>
-            <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C]">
-              {props.data[2].constituency[0].district}
-              {props.data[2].constituency[0].section}
-            </span>
+            <span className={NAME}>{props.data[2].base_info.name}</span>
+            <span className={FULFILLMENT}>{props.data[2].roundedRatio}%</span>
           </div>
         )}
         {props.data[0] && (
-          <div className={twMerge(twProfile)}>
-            <span className="mb-[8px text-[14px] font-semibold text-[#8C8C8C]">
-              {props.data[0].roundedRatio}%
-            </span>
+          <div className={cn(twProfile)}>
             <picture>
               <img
                 src={props.data[0].base_info.profile_url}
                 alt="국회의원 프로필사진"
-                className={`h-[104px] w-[104px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+                className={`h-[76px] w-[76px] rounded-full object-cover object-top`}
               />
             </picture>
-            <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
+            <span className="mb-[6px] mt-[8px] text-[18px] font-bold leading-[100%] text-black">
               {props.data[0].base_info.name}
             </span>
-            <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C] ">
-              {props.data[0].constituency[0].district}
-              {props.data[0].constituency[0].section}
+            <span className="text-[16px] font-bold text-black">
+              {props.data[0].roundedRatio}%
             </span>
           </div>
         )}
         {props.data[1] && (
-          <div className={twMerge(twProfile)}>
-            <span className="mb-[6px] text-[14px] font-semibold text-[#8C8C8C]">
-              {props.data[1].roundedRatio}%
-            </span>
+          <div className={cn(twProfile)}>
             <picture>
               <img
                 src={props.data[1].base_info.profile_url}
                 alt="국회의원 프로필사진"
-                className={`h-[74px] w-[74px] rounded-full border-[1px] border-[#F1F1F1] object-cover object-top`}
+                className={`h-[60px] w-[60px] rounded-full object-cover object-top`}
               />
             </picture>
-            <span className="mb-[8px] mt-[14px] text-[16px] font-semibold leading-[100%] text-black">
-              {props.data[1].base_info.name}
-            </span>
-            <span className="text-[14px] font-semibold leading-[100%] text-[#8C8C8C]">
-              {props.data[1].constituency[0].district}
-              {props.data[1].constituency[0].section}
-            </span>
+            <span className={NAME}>{props.data[1].base_info.name}</span>
+            <span className={FULFILLMENT}>{props.data[1].roundedRatio}%</span>
           </div>
         )}
       </article>
