@@ -6,15 +6,15 @@ export const PARTY_DATA: {
 } = {
   더불어민주당: {
     border: '#17288B',
-    logo: '/icons/minjoo.svg',
+    logo: '/images/minjoo.png',
   },
   국민의힘: {
     border: '#E60024',
-    logo: '/icons/kookmin.svg',
+    logo: '/images/kookmin.png',
   },
   녹색정의당: {
     border: '#007C36',
-    logo: 'icons/justice.svg',
+    logo: '/images/justice.png',
   },
   무소속: {
     border: '#525252',
