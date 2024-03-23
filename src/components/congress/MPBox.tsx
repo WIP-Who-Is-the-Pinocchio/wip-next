@@ -105,7 +105,7 @@ function summaryRegion(regionData: {
 }) {
   const fullRegion = `${regionData.region} ${
     regionData.district ? regionData.district : ''
-  }${regionData.section ? regionData.section : ''}`;
+  } ${regionData.section ? regionData.section : ''}`;
 
   return fullRegion;
 }

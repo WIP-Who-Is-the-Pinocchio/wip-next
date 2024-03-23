@@ -31,7 +31,7 @@ export const MPBoxDetail = ({ mpData }: TableProps) => {
   const regionData = mpData.constituency[0];
   const fullRegion = `${regionData.region} ${
     regionData.district ? regionData.district : ''
-  }${regionData.section ? regionData.section : ''}`;
+  } ${regionData.section ? regionData.section : ''}`;
 
   return (
     <article className="flex flex-col gap-6 text-[#3A3A3A]">

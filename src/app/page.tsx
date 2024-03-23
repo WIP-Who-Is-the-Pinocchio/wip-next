@@ -39,7 +39,7 @@ export default function List() {
         <Header needDescription={currentTab === 'countryWide'} />
         {currentTab === 'countryWide' && (
           <article className="mt-7 w-full px-5">
-            <Rank data={lowestThreePromises} />
+            <Rank rankData={lowestThreePromises} />
           </article>
         )}
         <article
@@ -79,23 +79,37 @@ export default function List() {
   );
 }
 
-function getLowestPromiseCount(data: MPDataType[]) {
-  // 비율 계산하여 데이터에 추가
-  const dataWithRatio = data.map((item: MPDataType) => {
-    const { completed_promise_count, total_promise_count } = item.base_info;
-    const roundedRatio = Math.round(
-      (completed_promise_count / total_promise_count || 0) * 100
-    );
-    return { ...item, roundedRatio };
+function getLowestPromiseCount(mpData: MPDataType[]) {
+  const sortData = mpData.sort((a, b) => {
+    const ratioA =
+      a.base_info.total_promise_count > 0
+        ? a.base_info.completed_promise_count / a.base_info.total_promise_count
+        : 0;
+    const ratioB =
+      b.base_info.total_promise_count > 0
+        ? b.base_info.completed_promise_count / b.base_info.total_promise_count
+        : 0;
+    return ratioA - ratioB;
   });
 
-  // 비율을 기준으로 데이터 정렬
-  const sortedData = dataWithRatio.sort(
-    (a: any, b: any) => b.roundedRatio - a.roundedRatio
+  const topRatios = sortData
+    .slice(0, 3)
+    .map((data) =>
+      data.base_info.total_promise_count > 0
+        ? data.base_info.completed_promise_count /
+          data.base_info.total_promise_count
+        : 0
+    );
+
+  const thirdLowestRatio = topRatios[2] || 0;
+
+  const resultData = sortData.filter(
+    (data) =>
+      (data.base_info.total_promise_count > 0
+        ? data.base_info.completed_promise_count /
+          data.base_info.total_promise_count
+        : 0) <= thirdLowestRatio
   );
 
-  // 가장 낮은 3명의 데이터 선택
-  const lowestThree = sortedData.slice(0, 5);
-
-  return lowestThree;
+  return resultData;
 }
