@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     '국회의원',
   ],
   icons: {
-    icon: '/wipLogo.svg',
+    icon: '/icons/wipLogo.svg',
   },
   verification: {
     google: 'EWUknIFTpEBvR0cghd3GS3WXt7UXtOAcAqRDlg3lcoo',
