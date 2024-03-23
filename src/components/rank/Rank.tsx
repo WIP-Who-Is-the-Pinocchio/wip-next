@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { MPDataType } from '@/api/api';
 import { PARTY_DATA } from '@/constants';
 import { cn, percentagePromiseCount } from '@/utils';
+import SpeechBubble from './SpeechBubble';
 import 'swiper/css';
 import './swiperCustom.css';
 
@@ -30,9 +31,10 @@ export default function Rank({ rankData }: RankProps) {
 
   return (
     <section className="flex w-full flex-col items-center">
-      <div className="mb-[26px] text-[14px] font-bold">
+      <div className="text-[14px] font-bold">
         {'전국 공약 이행률 가장 낮은 3인'}
       </div>
+      <SpeechBubble />
       <article className="flex w-full items-center rounded-[4px] bg-[#EFEFEF] px-4 py-3">
         {needPagination && <LeftArrow currentIndex={activeIndex} />}
         <Swiper
