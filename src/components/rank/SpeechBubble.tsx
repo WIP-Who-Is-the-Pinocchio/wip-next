@@ -8,19 +8,19 @@ export default function SpeechBubble() {
       <div className="flex w-full items-end justify-center gap-[36px] pb-[12px] font-bold text-white">
         <div className=" pb-[7px]">
           <div className="relative flex h-[60px] w-[61px] items-center justify-center rounded-[12px] rounded-br-[0] bg-[#CFCFCF] px-[12px] py-[18px]">
-            <p className="text-[20px]">20%</p>
+            <p className="text-[20px]">0%</p>
             <span className="absolute bottom-[-7px] right-0 border-[7px] border-transparent border-r-[#CFCFCF] border-t-transparent "></span>
           </div>
         </div>
         <div className=" pb-[10px]">
           <div className="relative flex h-[90px] w-[90px] items-center justify-center rounded-[12px] rounded-br-[0] bg-[#000000] px-[13px] py-[31px]">
-            <p className="text-[28px]">10%</p>
+            <p className="text-[28px]">0%</p>
             <span className="absolute bottom-[-10px] right-0 border-[10px] border-transparent border-r-[#000000] border-t-transparent "></span>
           </div>
         </div>
         <div className=" pb-[7px]">
           <div className="relative flex h-[60px] w-[61px] items-center justify-center rounded-[12px] rounded-br-[0] bg-[#CFCFCF] px-[12px] py-[18px]">
-            <p className="text-[20px]">30%</p>
+            <p className="text-[20px]">0%</p>
             <span className="absolute bottom-[-7px] right-0 border-[7px] border-transparent border-r-[#CFCFCF] border-t-transparent "></span>
           </div>
         </div>
