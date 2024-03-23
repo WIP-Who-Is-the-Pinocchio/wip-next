@@ -2,7 +2,7 @@ export const partyData: string[] = [
   '국민의힘',
   '더불어민주당',
   '녹색정의당',
-  '기타',
+  '무소속',
 ];
 
 // export interface PartyDataType {
