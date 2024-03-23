@@ -40,12 +40,12 @@ export const PartyComponent = ({
   return (
     <>
       {partyStep === 0 && (
-        <section className="mb-[120px] flex w-full flex-col gap-16">
-          <div className="mb-[120px] flex flex-col gap-6">
+        <section className="mb-[120px] flex w-full flex-col">
+          <div className="mb-[120px] mt-[6px] flex flex-col">
             {partyData.map((party) => (
               <div
                 key={party}
-                className="cursor-pointer border-b border-[#F1F1F1] py-4 hover:font-bold"
+                className="cursor-pointer border-b border-[#F1F1F1] py-8 hover:font-bold"
                 onClick={() => {
                   handleRegionClick(party);
                 }}
