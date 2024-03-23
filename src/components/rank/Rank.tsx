@@ -1,6 +1,7 @@
 'use client';
 
 import { MPDataType } from '@/api/api';
+import { PARTY_DATA } from '@/constants';
 import { cn } from '@/utils';
 
 interface RankProps {
@@ -24,6 +25,11 @@ export default function Rank(props: RankProps) {
             <picture>
               <img
                 src={props.data[2].base_info.profile_url}
+                style={{
+                  border: `4px solid ${
+                    PARTY_DATA[props.data[2].base_info.political_party].border
+                  }`,
+                }}
                 alt="국회의원 프로필사진"
                 className={`h-[60px] w-[60px] rounded-full object-cover object-top `}
               />
@@ -38,6 +44,11 @@ export default function Rank(props: RankProps) {
               <img
                 src={props.data[0].base_info.profile_url}
                 alt="국회의원 프로필사진"
+                style={{
+                  border: `4px solid ${
+                    PARTY_DATA[props.data[0].base_info.political_party].border
+                  }`,
+                }}
                 className={`h-[76px] w-[76px] rounded-full object-cover object-top`}
               />
             </picture>
@@ -54,6 +65,11 @@ export default function Rank(props: RankProps) {
             <picture>
               <img
                 src={props.data[1].base_info.profile_url}
+                style={{
+                  border: `4px solid ${
+                    PARTY_DATA[props.data[1].base_info.political_party].border
+                  }`,
+                }}
                 alt="국회의원 프로필사진"
                 className={`h-[60px] w-[60px] rounded-full object-cover object-top`}
               />
