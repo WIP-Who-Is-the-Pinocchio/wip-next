@@ -6,18 +6,31 @@ import Rank from '@/components/rank/Rank';
 import Tabs from '@/components/list/Tabs';
 import SEO from '@/components/SEO';
 import MPListContainer from '@/components/congress/MPListContainer';
+import { RegionComponent, PartyComponent } from '@/components/list';
 import { Header } from '@/components/shared';
 import { TabKey, TAB_LIST } from '@/constants';
+import { useCategoryStep } from '@/hooks';
 import { DUMMY_DATA, MPDataType } from '../api/api';
 
 export default function List() {
   const [currentTab, setCurrentTab] = useState<TabKey>('countryWide');
 
-  const handleSelectedTab = (tab: string) => {
-    setCurrentTab(tab as TabKey);
-  };
+  const {
+    regionStep,
+    partyStep,
+    nextRegionStep,
+    nextPartyStep,
+    resetRegionStep,
+    resetPartyStep,
+  } = useCategoryStep();
 
   const lowestThreePromises = getLowestPromiseCount(DUMMY_DATA);
+
+  const handleSelectedTab = (tab: string) => {
+    setCurrentTab(tab as TabKey);
+    resetRegionStep();
+    resetPartyStep();
+  };
 
   return (
     <>
@@ -43,7 +56,23 @@ export default function List() {
             tabList={TAB_LIST}
             handleSelectedTab={handleSelectedTab}
           />
-          <MPListContainer mpData={DUMMY_DATA} />
+          {currentTab === 'countryWide' && (
+            <MPListContainer mpData={DUMMY_DATA} />
+          )}
+          {currentTab === 'region' && (
+            <RegionComponent
+              regionStep={regionStep}
+              nextRegionStep={nextRegionStep}
+              mpData={DUMMY_DATA}
+            />
+          )}
+          {currentTab === 'party' && (
+            <PartyComponent
+              partyStep={partyStep}
+              nextPartyStep={nextPartyStep}
+              mpData={DUMMY_DATA}
+            />
+          )}
         </article>
       </section>
     </>
