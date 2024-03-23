@@ -67,15 +67,16 @@ export const RegionComponent = ({
     <>
       {regionStep === 0 && (
         <section className="flex w-full gap-2.5 text-[16px] text-[#0E0E0E]">
-          <article className="w-auto flex-shrink-0 cursor-pointer">
+          <article className="w-auto flex-shrink-0">
             {circuitData.map((circuit) => (
               <div
                 className={cn(
                   currentCircuit === circuit ? CURRENT_REGION : REGION,
-                  'border-b border-[#F1F1F1] px-6 py-4'
+                  'cursor-pointer border-b border-[#F1F1F1] px-6 py-4'
                 )}
                 key={circuit}
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   handleNextClick(circuit);
                 }}
               >
@@ -83,7 +84,7 @@ export const RegionComponent = ({
               </div>
             ))}
           </article>
-          <article className="flex-grow cursor-pointer">
+          <article className="flex-grow">
             {[
               `${currentCircuit} 전체`,
               ...getRegionArray(regionData, currentCircuit),
@@ -92,7 +93,7 @@ export const RegionComponent = ({
                 {region ? (
                   <div
                     key={region}
-                    className="border-b border-[#F1F1F1] py-4"
+                    className="cursor-pointer border-b border-[#F1F1F1] py-4"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleRegionClick(region);
