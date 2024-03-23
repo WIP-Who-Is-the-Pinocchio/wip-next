@@ -46,6 +46,10 @@ export const RegionComponent = ({
 
   useEffect(() => {
     const filteredData = mpData.filter((data) => {
+      if (currentDistrict?.includes('전체')) {
+        return data.constituency[0].region.includes(currentCircuit);
+      }
+
       if (currentDistrict) {
         return (
           data.constituency[0].region.includes(currentCircuit) &&
