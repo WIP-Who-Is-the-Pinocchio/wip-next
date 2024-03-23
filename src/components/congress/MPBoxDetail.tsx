@@ -28,28 +28,38 @@ export const MPBoxDetail = ({ mpData }: TableProps) => {
     useTableData(mpData);
 
   const profileData = mpData.base_info;
+  const regionData = mpData.constituency[0];
+  const fullRegion = `${regionData.region} ${
+    regionData.district ? regionData.district : ''
+  }${regionData.section ? regionData.section : ''}`;
 
   return (
-    <article className="text-[#3A3A3A]">
-      <div className="mb-6 flex gap-[10px]">
-        <span>당선횟수</span>
-        <span>{profileData.elected_count}회</span>
+    <article className="flex flex-col gap-6 text-[#3A3A3A]">
+      <div className="flex flex-col gap-4">
+        <div className="flex gap-[10px]">
+          <span>선거구</span>
+          <span className="text-[#636363]">{fullRegion}</span>
+        </div>
+        <div className="flex gap-[10px]">
+          <span>당선횟수</span>
+          <span className="text-[#636363]">{profileData.elected_count}회</span>
+        </div>
       </div>
-      <div className="mb-6 flex flex-col gap-3">
+      <div className="flex flex-col gap-3">
         <span>공약 이행 현황</span>
         <span className="text-[14px] text-[#AFAFAF]">
           *총 공약수 = 완료+추진중+보류+폐기+기타공약수
         </span>
         <Table headers={promiseHeaders} data={promiseData} />
       </div>
-      <div className="mb-6 flex flex-col gap-3">
+      <div className="flex flex-col gap-3">
         <span>성격/내용별 완료 현황</span>
         <span className="text-[14px] text-[#AFAFAF]">
           *각 분류별로 완료 공약 수 및 전체 공약수를 기입
         </span>
         <Table headers={promiseDetailHeaders} data={promiseDetailData} />
       </div>
-      <div className="mb-6 flex flex-col gap-3">
+      <div className="flex flex-col gap-3">
         <span>입법 현황</span>
         <span className="text-[14px] text-[#AFAFAF]">
           *필요 입법 공약 총 수: 입법이 필요한 공약의 총 수
@@ -59,7 +69,7 @@ export const MPBoxDetail = ({ mpData }: TableProps) => {
         </span>
         <Table headers={resolvedPromiseHeader} data={resolvedPromiseData} />
       </div>
-      <div className="mb-14 flex flex-col gap-3">
+      <div className="mb-[26px] flex flex-col gap-3">
         <span>재정 현황</span>
         <span className="text-[14px] text-[#AFAFAF]">
           *전체 공약의 재정 현황 합계
