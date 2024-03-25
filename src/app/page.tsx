@@ -35,7 +35,7 @@ export default function List() {
   return (
     <>
       <SEO title="국회의원 공약이행률 순위" />
-      <section className="flex w-full max-w-[1020px] flex-col items-center">
+      <section className="flex w-full max-w-[450px] flex-col items-center">
         <Header needDescription={currentTab === 'countryWide'} />
         {currentTab === 'countryWide' && (
           <article className="mt-7 w-full px-5">
