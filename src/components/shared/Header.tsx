@@ -32,7 +32,7 @@ export const Header = ({ needDescription = true }: HeaderProps) => {
               'gap-[6px] text-[12px] text-deepGray'
             )}
           >
-            <span>최종 업데이트 일자: 2024.03.03</span>
+            <span>최종 업데이트 일자: 2022.12.12</span>
             <span>이메일: wipinocchio@gmail.com</span>
           </div>
         </>
